@@ -1,0 +1,17 @@
+@import "./../../../sass/variables";
+
+.lastArticles {
+    background-color: $duck;
+
+    .lastArticles-title {
+        h1 {
+            @include fluid-title-h1;
+            padding-top: 2rem;
+            color: lighten($color: $gray-blue, $amount: 30%);
+        }
+        p {
+            color: lighten($color: $gray-blue, $amount: 30%);
+            margin-bottom: 2rem;
+        }
+    }
+}

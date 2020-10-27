@@ -1,0 +1,15 @@
+@import "./../../sass/variables";
+
+.welcome {
+    margin-bottom: 2.5rem;
+
+    .welcome-title {
+        @include fluid-title-h1;
+        color: $duck;
+    }
+}
+
+.donate-title {
+    @include fluid-title-h1;
+    color: $duck;
+}

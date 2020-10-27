@@ -1,0 +1,55 @@
+@import "./../../sass/variables";
+
+.articleCard {
+    background-color: $duck;
+    margin-bottom: 2rem;
+    padding: 0 15px;
+
+    .innerCard {
+        background-color: white;
+
+        .imageCard {
+            width: 100%;
+            height: calc(200px + (250 - 200) * ((100vw - 320px) / (1400 - 320)));
+            background-position: center;
+            background-size: cover;
+            margin-bottom: 1.5rem;
+        }
+
+        .bodyCard {
+            padding: 0 15px;
+
+            .articleTitle {
+                color: $duck;
+            }
+            .read-more-customed {
+                padding-bottom: 1.5rem;
+
+                a {
+                    text-decoration: none;
+                    color: $duck-light;
+                    font-family: $font-text;
+                    font-weight: 700;
+                    font-size: 18px;
+
+                    &:hover {
+                        color: $bleu;
+                    }
+                }
+            }
+            .read-more {
+                display: none;
+            }
+        }
+
+        .footerCard {
+            background-color: $gray-blue;
+            padding: 0 15px;
+            .author-date {
+                display: flex;
+                justify-content: space-between;
+                color: white;
+            }
+        }
+    }
+}

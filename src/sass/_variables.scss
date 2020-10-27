@@ -1,0 +1,50 @@
+/*-------------------------------------
+Colors & Fonts References
+---------------------------------------
+Gray bleu clair: #e9f3f5, rgba(233,243,245,0)
+Gray bleu: #88a5aa, rgba(136,165,170,0)
+Gray anthracite: #464B4C, rgba(70,75,76,0)
+Red: #cc1417, rgba(204,20,23,0)
+Cyan: #00b8d8, rgba(0,184,216,0)
+Bleu: #008CFF, rgba(0,140,255,0)
+Duck clair: #247eb3, rgba(36,126,179,0)
+Duck: #1c4963, rgba(28,73,99,0)
+Navy: #021e34, rgba(2,30,52,0)
+
+font-family: 'Mulish', sans-serif;
+font-family: 'Rokkitt', serif;
+font-family: 'Fahkwang', sans-serif;
+
+**************************************/
+
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Ovo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rokkitt:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fahkwang:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Ovo&display=swap");
+
+$font-text: "Mulish", sans-serif;
+$font-title: "Rokkitt", serif;
+$font-highlight: "Fahkwang", sans-serif;
+
+/* Spacing */
+$spacer-xs: 4px;
+$spacer-s: 8px;
+$spacer-m: 12px;
+$spacer-l: 18px;
+$spacer-xl: 28px;
+
+/* Colors */
+$gray-blue-light: #e9f3f5;
+$gray-blue: #88a5aa;
+$gray-anthracite: #464b4c;
+$red: #cc1417;
+$cyan: #00b8d8;
+$bleu: #008cff;
+$duck-light: #247eb3;
+$duck: #1c4963;
+$navy: #021e34;
+
+/* Mixin */
+@mixin fluid-title-h1 {
+    font-size: calc(28px + (38 - 28) * ((100vw - 320px) / (1400 - 320)));
+}

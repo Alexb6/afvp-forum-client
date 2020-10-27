@@ -1,0 +1,29 @@
+@import "./sass/variables";
+
+/*-------------------------------------
+Bootstrap
+-------------------------------------*/
+.container-fluid {
+    padding: 0;
+}
+
+/*-------------------------------------
+General
+-------------------------------------*/
+html {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1400px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-title;
+}

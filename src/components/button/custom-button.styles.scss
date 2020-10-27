@@ -1,0 +1,25 @@
+@import "./../../sass/variables";
+
+.custom-button {
+    min-width: 165px;
+    width: auto;
+    height: 50px;
+    letter-spacing: 0.5px;
+    line-height: 50px;
+    padding: 0 35px;
+    font-size: 16px;
+    background-color: $duck;
+    color: white;
+    text-transform: uppercase;
+    font-family: $font-text;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: white;
+        color: $duck;
+        outline: 1px solid $duck;
+        outline-offset: -1px;
+    }
+}
