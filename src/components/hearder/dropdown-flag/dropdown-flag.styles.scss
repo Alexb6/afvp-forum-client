@@ -1,0 +1,83 @@
+@import "./../../../sass/variables";
+
+.dropdown__menu {
+    background: white;
+    width: 170px;
+    position: absolute;
+    top: 57px;
+    text-align: start;
+    border-top: 2px solid $blue;
+    list-style-type: none;
+    overflow: hidden;
+
+    .mobile-close-dropdown {
+        display: none;
+    }
+
+    li {
+        background: white;
+        cursor: pointer;
+
+        &:hover {
+            background-color: lighten($color: $blue, $amount: 47%);
+        }
+
+        .dropdown__link {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            padding: 12px 5px;
+
+            .dropdown-flag {
+                width: 16px;
+                position: relative;
+                top: -1px;
+                margin-right: 8px;
+                margin-left: 8px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .dropdown__menu {
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0%;
+        border: none;
+        transition: all 0.5s ease;
+
+        .dropdown__flag {
+            position: relative;
+            left: 100%;
+            transition: all 0.5s ease;
+
+            &.active {
+                left: 0%;
+            }
+
+            .mobile-close-dropdown {
+                display: block;
+                height: 40px;
+                background-color: $blue;
+                cursor: pointer;
+                display: flex;
+                justify-content: flex-end;
+
+                .fa-angle-right {
+                    color: white;
+                    position: relative;
+                    top: 0px;
+
+                    margin-right: 13px;
+                    width: 9px;
+                }
+            }
+
+            .dropdown__link {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+}

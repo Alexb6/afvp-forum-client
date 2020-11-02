@@ -3,13 +3,13 @@
 .welcome {
     margin-bottom: 2.5rem;
 
-    .welcome-title {
+    .welcome__title {
         @include fluid-title-h1;
         color: $duck;
     }
 }
 
-.donate-title {
+.donate__title {
     @include fluid-title-h1;
     color: $duck;
 }

@@ -5,18 +5,18 @@ import parse from 'html-react-parser';
 import './card.styles.scss';
 
 const Card = ({ image, author, date, title, excerpt, link }) => (
-    <div className="articleCard col-md-6 col-lg-4" >
-        <div className="innerCard">
-            <div className="imageCard" style={{ backgroundImage: `url(${image})` }} />
-            <div className="bodyCard">
-                <h4 className="articleTitle">{title} </h4>
-                <div className="articleExerpt">
+    <div className="card col-md-6 col-lg-4" >
+        <div className="card-inner">
+            <div className="card__image" style={{ backgroundImage: `url(${image})` }} />
+            <div className="card__body">
+                <h4 className="body__title">{title} </h4>
+                <div className="body__excerpt">
                     {parse(excerpt)}
                 </div>
-                <div className="read-more-customed"><a href={link} target="_blank" rel="noopener noreferrer">Lire la suite</a></div>
+                <div className="body__read-more"><a href={link} target="_blank" rel="noopener noreferrer">Lire la suite</a></div>
             </div>
-            {/* <div className="footerCard">
-                <div className="author-date">
+            {/* <div className="card__footer">
+                <div className="footer__author-date">
                     <span>{author}</span>
                     <span><Moment format="DD/MM/YYYY">{date}</Moment></span>
                 </div>

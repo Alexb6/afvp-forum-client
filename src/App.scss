@@ -10,9 +10,8 @@ Bootstrap
 /*-------------------------------------
 General
 -------------------------------------*/
-html {
-    display: flex;
-    justify-content: center;
+.header-sticky {
+    height: 70px;
 }
 
 .container {

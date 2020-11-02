@@ -30,14 +30,14 @@ class WpArticles extends React.Component {
     render() {
         const { posts } = this.state;
         return (
-            <div className="lastArticles container-fluid">
-                <div className="lastArticles-title container">
+            <div className="articles container-fluid">
+                <div className="articles__intro container">
                     <h1 className="">Nos derniers articles</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur perspiciatis laborum quia quae eveniet animi laudantium, dolores ullam consequuntur iure numquam repudiandae ad! Quo autem iusto sapiente reiciendis nostrum! Sit, exercitationem ipsa fuga, praesentium ea sed adipisci voluptatum neque unde reprehenderit minima eaque similique iste distinctio minus, voluptatem sint ipsam.</p>
                 </div>
                 <div className="container">
                     {posts.length ? (
-                        <div className="articles-Cards row">
+                        <div className="articles__cards row">
                             {posts.map(post => (
                                 <Card key={post.id}
                                     image={post.featured_image_large}

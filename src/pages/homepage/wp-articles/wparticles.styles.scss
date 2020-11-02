@@ -1,9 +1,9 @@
 @import "./../../../sass/variables";
 
-.lastArticles {
+.articles {
     background-color: $duck;
 
-    .lastArticles-title {
+    .articles__intro {
         h1 {
             @include fluid-title-h1;
             padding-top: 2rem;

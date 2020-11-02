@@ -1,28 +1,31 @@
 @import "./../../sass/variables";
 
-.articleCard {
+.card {
     background-color: $duck;
     margin-bottom: 2rem;
     padding: 0 15px;
+    border: none;
 
-    .innerCard {
+    .card-inner {
         background-color: white;
+        overflow: hidden;
 
-        .imageCard {
+        .card__image {
             width: 100%;
             height: calc(200px + (250 - 200) * ((100vw - 320px) / (1400 - 320)));
             background-position: center;
             background-size: cover;
             margin-bottom: 1.5rem;
+            @include gray-blue-shadow;
         }
 
-        .bodyCard {
+        .card__body {
             padding: 0 15px;
 
-            .articleTitle {
+            .body__title {
                 color: $duck;
             }
-            .read-more-customed {
+            .body__read-more {
                 padding-bottom: 1.5rem;
 
                 a {
@@ -33,19 +36,19 @@
                     font-size: 18px;
 
                     &:hover {
-                        color: $bleu;
+                        color: $blue;
                     }
                 }
             }
             .read-more {
-                display: none;
+                display: none; /* from WP API excerpt */
             }
         }
 
-        .footerCard {
+        .card__footer {
             background-color: $gray-blue;
             padding: 0 15px;
-            .author-date {
+            .footer__author-date {
                 display: flex;
                 justify-content: space-between;
                 color: white;

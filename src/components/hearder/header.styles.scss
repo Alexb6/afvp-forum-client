@@ -1,0 +1,170 @@
+@import "./../../sass/variables";
+
+.header {
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include gray-blue-shadow;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: white;
+    padding: 0;
+
+    .navbar__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .navbar__logo {
+            height: 100%;
+            width: 120px;
+        }
+
+        .navbar__hamburgers {
+            display: none;
+        }
+
+        .navbar__menu {
+            height: 100%;
+            position: relative;
+            top: 6px;
+            display: flex;
+            margin-bottom: 0;
+
+            .menu__separator {
+                height: 1px;
+                box-shadow: 0 8px 6px -6px black;
+            }
+
+            .menu__item {
+                padding: 17px 15px;
+                list-style-type: none;
+
+                a {
+                    color: $gray-anthracite;
+                    background-color: transparent;
+                    font-family: $font-highlight;
+                    font-weight: 600;
+                    font-size: 0.9rem;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: $blue;
+                        transition: all 0.2s ease-out;
+                    }
+
+                    & .fa-angle-right {
+                        display: none;
+                        width: 9px;
+                    }
+
+                    .fa-angle-down {
+                        width: 10px;
+                        position: relative;
+                        top: -1px;
+                        margin-left: 1px;
+                    }
+                }
+
+                &:last-child {
+                    padding-right: 0;
+                }
+
+                .dropdownFlag--enter {
+                    opacity: 0;
+                }
+                .dropdownFlag--enter-active {
+                    opacity: 1;
+                    transition: opacity 0.5s ease;
+                }
+                .dropdownFlag--exit {
+                    opacity: 1;
+                }
+                .dropdownFlag--exit-active {
+                    opacity: 0;
+                    transition: opacity 0.5s ease;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .header {
+        .navbar__inner {
+            position: relative;
+
+            .navbar__hamburgers {
+                display: block;
+                position: relative;
+                top: 8px;
+
+                button {
+                    margin: 0;
+
+                    .burger_hamburger-box__3lYk7 span {
+                        background-color: $gray-anthracite;
+                        width: 37px;
+
+                        &::after,
+                        &::before {
+                            background-color: $gray-anthracite;
+                            width: 37px;
+                        }
+                    }
+                }
+            }
+
+            .navbar__menu {
+                flex-direction: column;
+                background-color: white;
+                width: 100vw;
+                height: 250px;
+                position: absolute;
+                top: 57px;
+                right: -100%;
+                transition: all 0.4s ease-out;
+
+                &.active {
+                    right: 0%;
+                    z-index: 10;
+                    @include gray-blue-shadow;
+                }
+
+                .menu__item {
+                    width: 100%;
+                    padding: 13px 30px;
+
+                    &:last-child {
+                        padding-right: 30px;
+                    }
+
+                    &:first-child {
+                        padding-top: 15px;
+                    }
+
+                    a {
+                        display: flex;
+                        justify-content: right;
+
+                        .fa-angle-right {
+                            display: block;
+                            margin-left: 5px;
+                            position: relative;
+                            top: 0.5px;
+                        }
+
+                        .fa-angle-down {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

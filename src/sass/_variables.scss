@@ -1,4 +1,4 @@
-/*-------------------------------------
+/**************************************
 Colors & Fonts References
 ---------------------------------------
 Gray bleu clair: #e9f3f5, rgba(233,243,245,0)
@@ -17,7 +17,9 @@ font-family: 'Fahkwang', sans-serif;
 
 **************************************/
 
-/* Fonts */
+/* -------------------------------------
+Fonts
+-------------------------------------- */
 @import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Ovo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rokkitt:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fahkwang:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Ovo&display=swap");
@@ -26,25 +28,37 @@ $font-text: "Mulish", sans-serif;
 $font-title: "Rokkitt", serif;
 $font-highlight: "Fahkwang", sans-serif;
 
-/* Spacing */
+/* -------------------------------------
+Spacing
+-------------------------------------- */
 $spacer-xs: 4px;
 $spacer-s: 8px;
 $spacer-m: 12px;
 $spacer-l: 18px;
 $spacer-xl: 28px;
 
-/* Colors */
+/* -------------------------------------
+Colors
+-------------------------------------- */
 $gray-blue-light: #e9f3f5;
 $gray-blue: #88a5aa;
 $gray-anthracite: #464b4c;
 $red: #cc1417;
 $cyan: #00b8d8;
-$bleu: #008cff;
+$blue: #008cff;
 $duck-light: #247eb3;
 $duck: #1c4963;
 $navy: #021e34;
 
-/* Mixin */
+/* -------------------------------------
+Mixin
+-------------------------------------- */
+/* Fonts */
 @mixin fluid-title-h1 {
     font-size: calc(28px + (38 - 28) * ((100vw - 320px) / (1400 - 320)));
+}
+
+/* Box shadow */
+@mixin gray-blue-shadow {
+    box-shadow: 1px 1px 8px $gray-blue;
 }
