@@ -1,7 +1,7 @@
 @import "./../../sass/variables";
 
 .card {
-    background-color: $duck;
+    background-color: $gray-blue;
     margin-bottom: 2rem;
     padding: 0 15px;
     border: none;
@@ -23,14 +23,14 @@
             padding: 0 15px;
 
             .body__title {
-                color: $duck;
+                color: $gray-anthracite;
             }
             .body__read-more {
                 padding-bottom: 1.5rem;
 
                 a {
                     text-decoration: none;
-                    color: $duck-light;
+                    color: darken($color: $gray-blue, $amount: 20%);
                     font-family: $font-text;
                     font-weight: 700;
                     font-size: 18px;

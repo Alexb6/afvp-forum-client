@@ -16,7 +16,7 @@ const HomePage = () => (
         <div className="donate container">
             <h1 className="donate__title">Soutenir les actions de l'association</h1>
             <p className="donate__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit perspiciatis nulla incidunt consequuntur officiis reiciendis nostrum a porro iure corrupti quae, sint numquam reprehenderit facilis architecto itaque laudantium velit dignissimos. Corrupti nemo distinctio architecto aut dicta praesentium magnam officia blanditiis tempore exercitationem rerum magni, expedita cum voluptatibus earum consequuntur rem?</p>
-            <CustomButton>Je donne</CustomButton>
+            <CustomButton className="custom-button--positive--duck">Je donne</CustomButton>
         </div>
     </div >
 )

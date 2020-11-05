@@ -1,25 +1,68 @@
 @import "./../../sass/variables";
 
-.custom-button {
+@mixin custom-button {
     min-width: 165px;
     width: auto;
     height: 50px;
     letter-spacing: 0.5px;
     line-height: 50px;
-    padding: 0 35px;
+    padding: 0 25px;
     font-size: 16px;
-    background-color: $duck;
-    color: white;
     text-transform: uppercase;
     font-family: $font-text;
     font-weight: bolder;
     border: none;
     cursor: pointer;
+}
+
+.custom-button--positive--duck {
+    @include custom-button;
+    background-color: $duck;
+    color: white;
 
     &:hover {
         background-color: white;
         color: $duck;
         outline: 1px solid $duck;
         outline-offset: -1px;
+    }
+}
+
+.custom-button--negative--duck {
+    @include custom-button;
+    background-color: transparent;
+    color: $duck;
+    outline: 1px solid $duck;
+    outline-offset: -1px;
+
+    &:hover {
+        background-color: $duck;
+        color: white;
+    }
+}
+
+.custom-button--positive--gray-blue {
+    @include custom-button;
+    background-color: $gray-blue;
+    color: white;
+
+    &:hover {
+        background-color: white;
+        color: $gray-blue;
+        outline: 1px solid $gray-blue;
+        outline-offset: -1px;
+    }
+}
+
+.custom-button--negative--gray-blue {
+    @include custom-button;
+    background-color: transparent;
+    color: $gray-blue;
+    outline: 1px solid $gray-blue;
+    outline-offset: -1px;
+
+    &:hover {
+        background-color: $gray-blue;
+        color: white;
     }
 }
