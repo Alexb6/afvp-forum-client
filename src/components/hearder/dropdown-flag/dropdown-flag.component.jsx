@@ -1,6 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
 import { ReactComponent as AngleRight } from './../../../assets-src/icons/angle-right-solid.svg';
 import { flagItems } from './flags/flagItems';
 

@@ -29,7 +29,9 @@ h6 {
 
 p,
 pre,
-span {
+span,
+label,
+input {
     font-family: $font-text;
 }
 
@@ -38,6 +40,10 @@ span {
     flex-direction: column;
     height: 100vh;
     width: 100vw;
+
+    .header-sticky {
+        flex-shrink: 0;
+    }
 
     .footer {
         margin-top: auto;

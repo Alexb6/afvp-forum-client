@@ -1,0 +1,22 @@
+@import "./../../sass/variables";
+
+.form-textarea {
+    position: relative;
+    margin-bottom: 25px;
+
+    .textarea-textarea {
+        @include element-styles;
+
+        &:focus ~ .textarea-label {
+            @include shrink-label;
+        }
+    }
+
+    .textarea-label {
+        @include element-label;
+
+        &.shrink {
+            @include shrink-label;
+        }
+    }
+}

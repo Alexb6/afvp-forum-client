@@ -15,54 +15,32 @@
     cursor: pointer;
 }
 
+@mixin custom-button--positive($color) {
+    @include custom-button;
+    background-color: $color;
+    color: white;
+
+    &:hover {
+        background-color: white;
+        color: $color;
+        outline: 1px solid $color;
+        outline-offset: -1px;
+    }
+}
+
+@mixin custom-button--negative($color) {
+    @include custom-button;
+    background-color: transparent;
+    color: $color;
+    outline: 1px solid $color;
+    outline-offset: -1px;
+
+    &:hover {
+        background-color: $color;
+        color: white;
+    }
+}
+
 .custom-button--positive--duck {
-    @include custom-button;
-    background-color: $duck;
-    color: white;
-
-    &:hover {
-        background-color: white;
-        color: $duck;
-        outline: 1px solid $duck;
-        outline-offset: -1px;
-    }
-}
-
-.custom-button--negative--duck {
-    @include custom-button;
-    background-color: transparent;
-    color: $duck;
-    outline: 1px solid $duck;
-    outline-offset: -1px;
-
-    &:hover {
-        background-color: $duck;
-        color: white;
-    }
-}
-
-.custom-button--positive--gray-blue {
-    @include custom-button;
-    background-color: $gray-blue;
-    color: white;
-
-    &:hover {
-        background-color: white;
-        color: $gray-blue;
-        outline: 1px solid $gray-blue;
-        outline-offset: -1px;
-    }
-}
-
-.custom-button--negative--gray-blue {
-    @include custom-button;
-    background-color: transparent;
-    color: $gray-blue;
-    outline: 1px solid $gray-blue;
-    outline-offset: -1px;
-
-    &:hover {
-        background-color: $gray-blue;
-        color: white;
-    }
+    @include custom-button--positive($duck);
 }
