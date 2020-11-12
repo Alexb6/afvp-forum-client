@@ -1,0 +1,21 @@
+@import "./../../sass/variables";
+
+.sing-in-page {
+    margin-top: $bar-margin;
+
+    .sing-in-titlebar {
+        background-color: $duck;
+        @include gray-blue-shadow;
+
+        .titlebar-title {
+            color: white;
+            @include fluid-section-title;
+            padding-top: $bar-title-padding;
+            padding-bottom: $bar-title-padding;
+        }
+    }
+
+    .sing-in-section {
+        display: flex;
+    }
+}
