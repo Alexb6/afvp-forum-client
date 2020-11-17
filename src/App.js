@@ -12,7 +12,6 @@ function App() {
 	return (
 		<div className="app-afvp">
 			<Header />
-			<div className="header-sticky">Same height for the sticky header + the mobile navbar</div>
 			<Switch >
 				<Route exact path='/' component={HomePage} />
 				<Route exact path='/contact' component={ContactPage} />

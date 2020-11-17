@@ -28,6 +28,7 @@
         left: 5%;
         bottom: calc(-5px + (180 - 5) * ((100vw - 320px) / (1400 - 320)));
         letter-spacing: 10px;
+        z-index: 1;
     }
 
     .carousel-control-prev,

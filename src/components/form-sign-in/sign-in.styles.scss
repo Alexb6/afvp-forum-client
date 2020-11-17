@@ -1,12 +1,12 @@
 @import "./../../sass/variables";
 
 .sign-in {
-    .sign-in-title {
-        @include fluid-title-h2;
-        color: $duck;
-    }
+	.sign-in-title {
+		@include fluid-title-h2;
+		color: $duck;
+	}
 
-    form button {
-        margin-bottom: 25px;
-    }
+	form button {
+		margin-bottom: 25px;
+	}
 }

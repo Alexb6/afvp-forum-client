@@ -7,9 +7,9 @@ import './card.styles.scss';
 const Card = ({ image, author, date, title, excerpt, link }) => (
     <div className="card col-md-6 col-lg-4" >
         <div className="card-inner">
-            <div className="card__image" style={{ backgroundImage: `url(${image})` }} />
+            <div className="card__image" style={image ? { backgroundImage: `url(${image})` } : { background: 'linear-gradient()' }} />
             <div className="card__body">
-                <h4 className="body__title">{title} </h4>
+                <h4 className="body__title">{parse(title)} </h4>
                 <div className="body__excerpt">
                     {parse(excerpt)}
                 </div>

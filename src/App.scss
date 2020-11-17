@@ -40,6 +40,7 @@ input {
     flex-direction: column;
     height: 100vh;
     width: 100vw;
+    padding-top: $header-height;
 
     .header-sticky {
         flex-shrink: 0;
