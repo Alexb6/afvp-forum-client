@@ -6,19 +6,23 @@ import CustomButton from './../../components/button/custom-button.component';
 import './homepage.styles.scss';
 
 const HomePage = () => (
-    <div className="homepage">
-        <HomeCarousel />
-        <div className="welcome container">
-            <h1 className="welcome__title">Bienvenue à l'Association Franco-Vietnamienne de Pneumologie</h1>
-            <p className="welcome__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil praesentium quam nobis voluptates facere nulla inventore assumenda rerum dolorem delectus ipsam nostrum repudiandae quia animi sit voluptas mollitia impedit similique dicta, earum atque error nisi possimus? Officiis, provident sapiente ut voluptatem magnam modi consequatur similique error minima. Natus minus mollitia asperiores, ab dicta, cumque pariatur, dignissimos provident culpa accusamus atque autem? Nam cupiditate quo consectetur ab voluptatum, esse reprehenderit animi quae nihil blanditiis soluta et autem, obcaecati quidem similique ipsam laborum corporis tenetur voluptas dolores veniam excepturi, sit inventore! Adipisci, voluptas expedita! Cupiditate sapiente nostrum magnam quia ut facere eveniet.</p>
-        </div>
-        <WpArticles />
-        <div className="donate container">
-            <h1 className="donate__title">Soutenir les actions de l'association</h1>
-            <p className="donate__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit perspiciatis nulla incidunt consequuntur officiis reiciendis nostrum a porro iure corrupti quae, sint numquam reprehenderit facilis architecto itaque laudantium velit dignissimos. Corrupti nemo distinctio architecto aut dicta praesentium magnam officia blanditiis tempore exercitationem rerum magni, expedita cum voluptatibus earum consequuntur rem?</p>
-            <CustomButton className="custom-button--positive--duck">Je donne</CustomButton>
-        </div>
-    </div >
+	<div className="homepage">
+		<HomeCarousel />
+		<div className="welcome container">
+			<h1 className="welcome__title">Bienvenue à l'Association Franco-Vietnamienne de Pneumologie</h1>
+			<p className="welcome__text">Ce site est un lieu de rencontres et d’échanges entre francophones et vietnamiens, passionnés de pneumologie, de chirurgie thoracique, de maladies du sommeil, d’imagerie thoracique, d’allergologie, d’endoscopie, de physiologie respiratoire, de kinésithérapie respiratoire, et de bien d’autres domaines.</p>
+			<p>Depuis 1992, l’Association Franco-Vietnamienne de Pneumologie, organisme d’intérêt général, fondé par le Dr Jean-Paul HOMASSON, promeut des échanges médicaux, paramédicaux, et d'enseignement entre les structures sanitaires françaises et vietnamiennes, la recherche dans divers domaines cliniques, fondamentaux et thérapeutiques et notamment dons le cadre de la pneumologie et la chirurgie thoracique, l'apport d'une aide matérielle pour le diagnostic et le traitement des patients atteints d'affections respiratoires. Ceci est concrétisé par des formations au Vietnam ou en visioconférence, l’accueil de stagiaires, l’organisation biennale d’un congrès franco-vietnamien de pneumologie, etc.</p>
+		</div>
+		<WpArticles />
+		<div className="donate container">
+			<h1 className="donate__title">Soutenir les actions de l'association</h1>
+			<div className="donate__text mb-4">
+				Les voyages, l’aide aux étudiants et stagiaires vietnamiens, les aides en équipements, l’organisation des sessions de formation, etc., ont un coût et les dons sont essentiels à la réalisation de ces objectifs. <br />
+               Les dons ouvrent droit à crédit d’impôt en France (de 66 % pour les particuliers, dans la limite de 20 % du revenu imposable, de 60 % pour les personnes morales dans la limite de 20 000 € ou 5 ‰ (5 pour mille) du chiffre d'affaires annuel hors taxe. Un certificat fiscal vous est adressé par retour.
+            </div>
+			<CustomButton className="custom-button--positive--duck">Je donne</CustomButton>
+		</div>
+	</div >
 )
 
 export default HomePage;

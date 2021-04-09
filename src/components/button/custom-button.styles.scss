@@ -1,46 +1,46 @@
 @import "./../../sass/variables";
 
 @mixin custom-button {
-    min-width: 165px;
-    width: auto;
-    height: 50px;
-    letter-spacing: 0.5px;
-    line-height: 50px;
-    padding: 0 25px;
-    font-size: 16px;
-    text-transform: uppercase;
-    font-family: $font-text;
-    font-weight: bolder;
-    border: none;
-    cursor: pointer;
+	min-width: 165px;
+	width: auto;
+	height: 50px;
+	letter-spacing: 0.5px;
+	line-height: 50px;
+	padding: 0 25px;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-family: $font-text;
+	font-weight: bolder;
+	border: none;
+	cursor: pointer;
 }
 
 @mixin custom-button--positive($color) {
-    @include custom-button;
-    background-color: $color;
-    color: white;
+	@include custom-button;
+	background-color: $color;
+	color: white;
 
-    &:hover {
-        background-color: white;
-        color: $color;
-        outline: 1px solid $color;
-        outline-offset: -1px;
-    }
+	&:hover {
+		background-color: white;
+		color: $color;
+		outline: 1px solid $color;
+		outline-offset: -1px;
+	}
 }
 
 @mixin custom-button--negative($color) {
-    @include custom-button;
-    background-color: transparent;
-    color: $color;
-    outline: 1px solid $color;
-    outline-offset: -1px;
+	@include custom-button;
+	background-color: transparent;
+	color: $color;
+	outline: 1px solid $color;
+	outline-offset: -1px;
 
-    &:hover {
-        background-color: $color;
-        color: white;
-    }
+	&:hover {
+		background-color: $color;
+		color: white;
+	}
 }
 
 .custom-button--positive--duck {
-    @include custom-button--positive($duck);
+	@include custom-button--positive($duck);
 }

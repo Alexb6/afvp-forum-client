@@ -27,7 +27,7 @@ class SignIn extends React.Component {
 	render() {
 		return (
 			<div className="sign-in col-md-6 col-sm-12 mb-3">
-				<h2 className="sign-in-title">Je possède un compte</h2>
+				<h2 className="sign-in-title">Je suis déjà membre</h2>
 				<p>Se connecter avec mon courriel et mot de passe</p>
 				<form onSubmit={this.handleSubmit} autoComplete="off">
 					<FormInput type="email" name="email" label="Courriel" value={this.state.email} required onChange={this.handleChange} />

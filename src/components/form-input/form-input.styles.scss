@@ -1,26 +1,25 @@
 @import "./../../sass/variables";
 
 .form-input {
-    position: relative;
-    margin-bottom: 25px;
+	@include input-general-styles;
 
-    .input-input {
-        @include element-styles;
+	.input-input {
+		@include input-styles;
 
-        &:focus ~ .input-label {
-            @include shrink-label;
-        }
-    }
+		&:focus ~ .input-label {
+			@include shrink-label;
+		}
+	}
 
-    input[type="password"] {
-        letter-spacing: 0.3em;
-    }
+	input[type="password"] {
+		letter-spacing: 0.3em;
+	}
 
-    .input-label {
-        @include element-label;
+	.input-label {
+		@include input-label;
 
-        &.shrink {
-            @include shrink-label;
-        }
-    }
+		&.shrink {
+			@include shrink-label;
+		}
+	}
 }

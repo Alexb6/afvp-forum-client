@@ -1,38 +1,39 @@
 @import "./../../../sass/variables";
 
 .home-carousel {
-    margin-bottom: 2rem;
-    width: 100vw;
-    max-height: 60vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
+	margin-bottom: 2rem;
+	width: 100vw;
+	max-height: 60vh;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
 
-    .slogan-carousel {
-        font-size: calc(20px + (50 - 20) * ((100vw - 320px) / (1400 - 320)));
-        font-family: $font-highlight;
-        font-weight: 500;
+	.slogan-carousel {
+		font-size: calc(20px + (50 - 20) * ((100vw - 320px) / (1400 - 320)));
+		font-family: $font-highlight;
+		font-weight: 500;
+		text-shadow: black 3px 3px 8px;
 
-        &.last-text {
-            line-height: calc(25px + (65 - 25) * ((100vw - 320px) / (1400 - 320)));
-            font-size: calc(20px + (38 - 20) * ((100vw - 320px) / (1400 - 320)));
-        }
-    }
+		&.last-text {
+			line-height: calc(25px + (65 - 25) * ((100vw - 320px) / (1400 - 320)));
+			font-size: calc(20px + (38 - 20) * ((100vw - 320px) / (1400 - 320)));
+		}
+	}
 
-    .carousel-indicators {
-        margin-bottom: calc(5px + (26 - 5) * ((100vw - 320px) / (1400 - 320)));
-    }
+	.carousel-indicators {
+		margin-bottom: calc(5px + (26 - 5) * ((100vw - 320px) / (1400 - 320)));
+	}
 
-    .carousel-caption {
-        right: 5%;
-        left: 5%;
-        bottom: calc(-5px + (180 - 5) * ((100vw - 320px) / (1400 - 320)));
-        letter-spacing: 10px;
-        z-index: 1;
-    }
+	.carousel-caption {
+		right: 5%;
+		left: 5%;
+		bottom: calc(-5px + (180 - 5) * ((100vw - 320px) / (1400 - 320)));
+		letter-spacing: 10px;
+		z-index: 1;
+	}
 
-    .carousel-control-prev,
-    .carousel-control-next {
-        width: calc(35px + (80 - 35) * ((100vw - 320px) / (1400 - 320)));
-    }
+	.carousel-control-prev,
+	.carousel-control-next {
+		width: calc(35px + (80 - 35) * ((100vw - 320px) / (1400 - 320)));
+	}
 }

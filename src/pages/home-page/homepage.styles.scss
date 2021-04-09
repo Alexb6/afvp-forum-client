@@ -1,19 +1,19 @@
 @import "./../../sass/variables";
 
 .welcome {
-    margin-bottom: 2.5rem;
+	margin-bottom: 2.5rem;
 
-    .welcome__title {
-        @include fluid-title-h1;
-        color: $duck;
-    }
+	.welcome__title {
+		@include fluid-title-h1;
+		color: $duck;
+	}
 }
 
 .donate__title {
-    @include fluid-title-h1;
-    color: $duck;
+	@include fluid-title-h1;
+	color: $duck;
 }
 
 .donate {
-    margin-bottom: 3rem;
+	margin-bottom: 3rem;
 }

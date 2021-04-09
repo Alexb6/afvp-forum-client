@@ -1,63 +1,63 @@
 @import "./../../sass/variables";
 
 .contactpage {
-    margin-top: $bar-margin;
+	margin-top: $bar-margin;
 
-    .contact-titlebar {
-        background-color: $duck;
-        @include gray-blue-shadow;
+	.contact-titlebar {
+		background-color: $duck;
+		@include gray-blue-shadow;
 
-        .titlebar-title {
-            color: white;
-            @include fluid-section-title;
-            padding-top: $bar-title-padding;
-            padding-bottom: $bar-title-padding;
-        }
-    }
+		.titlebar-title {
+			color: white;
+			@include fluid-section-title;
+			padding-top: $bar-title-padding;
+			padding-bottom: $bar-title-padding;
+		}
+	}
 
-    .contact-section {
-        display: flex;
+	.contact-section {
+		display: flex;
 
-        .contact-details {
-            .details-title {
-                @include fluid-title-h2;
-                color: $duck;
-            }
+		.contact-details {
+			.details-title {
+				@include fluid-title-h2;
+				color: $duck;
+			}
 
-            .details-location,
-            .details-telephone,
-            .details-email,
-            .details-blog {
-                display: flex;
-                align-items: center;
-                margin-bottom: 25px;
+			.details-location,
+			.details-telephone,
+			.details-email,
+			.details-blog {
+				display: flex;
+				align-items: center;
+				margin-bottom: 25px;
 
-                svg {
-                    width: 23px;
-                    height: 23px;
-                    margin-right: 10px;
-                    color: $duck;
+				svg {
+					width: 23px;
+					height: 23px;
+					margin-right: 10px;
+					color: $duck;
 
-                    &.location-icon {
-                        width: 45px;
-                        height: 45px;
-                    }
-                }
+					&.location-icon {
+						width: 45px;
+						height: 45px;
+					}
+				}
 
-                a {
-                    text-decoration: none;
-                    color: $duck-light;
+				a {
+					text-decoration: none;
+					color: $duck-light;
 
-                    &:hover {
-                        color: $blue;
-                    }
-                }
+					&:hover {
+						color: $blue;
+					}
+				}
 
-                .location-address {
-                    display: flex;
-                    flex-direction: column;
-                }
-            }
-        }
-    }
+				.location-address {
+					display: flex;
+					flex-direction: column;
+				}
+			}
+		}
+	}
 }
