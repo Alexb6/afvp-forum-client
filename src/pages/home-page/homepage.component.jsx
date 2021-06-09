@@ -3,6 +3,7 @@ import HomeCarousel from './homecarousel/homecarousel.component';
 import WpArticles from './wp-articles/wparticles.component';
 import CustomButton from './../../components/button/custom-button.component';
 
+import { Link } from 'react-router-dom';
 import './homepage.styles.scss';
 
 const HomePage = () => (
@@ -20,7 +21,7 @@ const HomePage = () => (
 				Les voyages, l’aide aux étudiants et stagiaires vietnamiens, les aides en équipements, l’organisation des sessions de formation, etc., ont un coût et les dons sont essentiels à la réalisation de ces objectifs. <br />
                Les dons ouvrent droit à crédit d’impôt en France (de 66 % pour les particuliers, dans la limite de 20 % du revenu imposable, de 60 % pour les personnes morales dans la limite de 20 000 € ou 5 ‰ (5 pour mille) du chiffre d'affaires annuel hors taxe. Un certificat fiscal vous est adressé par retour.
             </div>
-			<CustomButton className="custom-button--positive--duck">Je donne</CustomButton>
+			<Link to='/sign-up-donor'><CustomButton className="custom-button--positive--duck">Je donne</CustomButton></Link>
 		</div>
 	</div >
 )

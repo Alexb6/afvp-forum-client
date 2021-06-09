@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Card from './../../../components/card/card.component';
+import CardPost from '../../../components/card/card-post-WP/card-post.component';
 
 import './wparticles.styles.scss';
 
@@ -35,11 +35,11 @@ class WpArticles extends React.Component {
 					<h1 className="">Nos derniers articles</h1>
 					<p>Un aperçu de la vie de l’Association Franco-Vietnamienne de Pneumologie ! Retrouvez ici les derniers articles de notre blog, en français et en vietnamien. Sur le blog, vous pourrez parcourir les onglets pour découvrir nos différents domaines d’activité, notre histoire...</p>
 				</div>
-				<div className="container">
+				<div className="articles__posts container">
 					{posts.length && (
 						<div className="articles__cards row">
 							{posts.map(post => (
-								<Card key={post.id}
+								<CardPost key={post.id}
 									image={post.featured_image_large}
 									author={post.author_meta.display_name}
 									date={post.date}

@@ -1,0 +1,21 @@
+@import "./../../../sass/variables";
+
+.form-select {
+   @include input-general-styles;
+
+   .select-input {
+      @include input-styles;
+
+      &:focus ~ .input-label {
+         @include shrink-label;
+      }
+   }
+
+   .input-label {
+      @include input-label;
+
+      &.shrink {
+         @include shrink-label;
+      }
+   }
+}

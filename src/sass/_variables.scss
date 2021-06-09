@@ -1,8 +1,11 @@
 /**************************************
 Colors & Fonts References
 ---------------------------------------
+Gray bleu extra extra clair: #fdfefe, rgba(253,254,254,0)
+Gray bleu extra clair: #f6f9f9, rgba(246,249,249,0)
 Gray bleu clair: #e9f3f5, rgba(233,243,245,0)
 Gray bleu: #88a5aa, rgba(136,165,170,0)
+Gray bleu foncé: #546365, rgba(84,99,101,0)
 Gray anthracite: #464B4C, rgba(70,75,76,0)
 Anthracite clair: #8A9293, rgba(138,146,147,0)
 Red: #cc1417, rgba(204,20,23,0)
@@ -37,8 +40,11 @@ $header-height: 70px;
 /* -------------------------------------
 Colors
 -------------------------------------- */
+$gray-blue-extra-extra-light: #fdfefe;
+$gray-blue-extra-light: #f6f9f9;
 $gray-blue-light: #e9f3f5;
 $gray-blue: #88a5aa;
+$gray-blue-dark: #546365;
 $anthracite-light: #8a9293;
 $gray-anthracite: #464b4c;
 $red: #cc1417;
@@ -105,9 +111,14 @@ Mixin
 }
 
 @mixin shrink-label {
-	top: -14px;
+	top: -10px;
 	font-size: 12px;
 	color: $duck-light;
+}
+
+@mixin grayed-message {
+	opacity: 0.5;
+	font-style: italic;
 }
 
 /* -------------------------------------

@@ -25,8 +25,8 @@ const Footer = () => (
 			</div>
 			<div className="footer-contact">
 				<Link className="contact-contact" to='/contact'><HollowRightChevron /> Nous Contacter</Link>
-				<Link className="contact-membership" to='/signinsignup'> <HollowRightChevron /> Nous Rejoindre</Link>
-				<Link className="contact-donation" to='/signinsignupdonation'> <HollowRightChevron /> Faire un Don</Link>
+				<Link className="contact-membership" to='/sign-up-member'> <HollowRightChevron /> Nous Rejoindre</Link>
+				<Link className="contact-donation" to='/sign-up-donor'> <HollowRightChevron /> Faire un Don</Link>
 			</div>
 		</div>
 		<LineDivider backgroundColor='#969696' height={0.1} />

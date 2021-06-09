@@ -1,0 +1,16 @@
+@import "./../../../../sass/variables";
+
+.sign-in {
+	.sign-in-title {
+		@include fluid-title-h2;
+		color: $duck;
+	}
+
+	.sign-in-create-account {
+		@include grayed-message;
+	}
+
+	form button {
+		margin-bottom: 25px;
+	}
+}

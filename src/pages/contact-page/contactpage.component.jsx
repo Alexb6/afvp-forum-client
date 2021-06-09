@@ -4,7 +4,7 @@ import { ReactComponent as Email } from './../../assets-src/icons/arroba.svg';
 import { ReactComponent as Blog } from './../../assets-src/icons/blogger.svg';
 import AFVP from './../../assets-src/data/data-AFVP';
 
-import ContactForm from './../../components/form-contact/contact.component';
+import ContactForm from './../../components/form/form-contact/contact.component';
 
 import './contactpage.styles.scss';
 
@@ -16,7 +16,7 @@ const ContactPage = () => (
 			<h1 className="titlebar-title container">Contacts</h1>
 		</div>
 		<div className="contact-section container">
-			<div className="row w-100">
+			<div className="row">
 				<div className="contact-details col-md-6 col-sm-12 mb-3">
 					<h2 className="details-title">Contactez-nous</h2>
 					<div className="details-location">

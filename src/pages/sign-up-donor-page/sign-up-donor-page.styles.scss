@@ -1,0 +1,21 @@
+@import "./../../sass/variables";
+
+.sign-up-donor-page {
+   margin-top: $bar-margin;
+
+   .sign-up-donor-titlebar {
+      background-color: $duck;
+      @include gray-blue-shadow;
+
+      .titlebar-title {
+         color: white;
+         @include fluid-section-title;
+         padding-top: $bar-title-padding;
+         padding-bottom: $bar-title-padding;
+      }
+   }
+
+   .sign-up-donor-section {
+      display: flex;
+   }
+}

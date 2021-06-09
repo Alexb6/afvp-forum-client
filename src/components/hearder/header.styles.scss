@@ -17,13 +17,16 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		padding-left: 15px;
+		padding-right: 15px;
 
 		.navbar__logo {
 			height: 100%;
 			width: 120px;
 		}
 
-		.navbar__hamburgers {
+		.navbar__hamburgers,
+		.ham_overlay {
 			display: none;
 		}
 
@@ -124,9 +127,9 @@
 
 			.navbar__menu {
 				flex-direction: column;
-				background-color: white;
+				background-color: $gray-blue-extra-light;
 				width: 100vw;
-				height: 250px;
+				min-height: 100vh;
 				position: absolute;
 				top: 57px;
 				right: -110%;

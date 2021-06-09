@@ -28,34 +28,37 @@ const Header = () => {
 
 	return (
 		<header className="header">
-			<nav className="navbar__inner container">
-				<Link className="navbar__logo" to='/' onClick={mobileMenuClose} >
-					<Logo className="logo" />
-				</Link>
-				<div className="navbar__hamburgers">
-					<Burger active={hambClick} burger='squeeze' onClick={hambugerClick} />
+			<nav className="container">
+				<div className="navbar__inner row">
+					<Link className="navbar__logo" to='/' onClick={mobileMenuClose} >
+						<Logo className="logo" />
+					</Link>
+					<div className="navbar__hamburgers">
+						<Burger active={hambClick} burger='squeeze' onClick={hambugerClick} />
+					</div>
+					<ul className={`navbar__menu ${hambClick ? 'active' : ''}`} >
+						<div className="menu__separator"></div>
+						<li className="menu__item about">
+							<Link to='/about' onClick={mobileMenuClose} >à propos</Link>
+						</li>
+						<li className="menu__item forum">
+							<Link to='/forum' onClick={mobileMenuClose} >forum</Link>
+						</li>
+						<li className="menu__item blog">
+							<a href='http://www.blog.afvp.net/' target="_blank" rel="noopener noreferrer" onClick={mobileMenuClose}>blog</a>
+						</li>
+						<li className="menu__item flag" onMouseEnter={showDropdownFlag} onMouseLeave={hideDropdownFlag}>
+							<Link to='#' onClick={handleDropdownFlag} >flag <AngleDown className="fas fa-angle-down" /> <AngleRight className="fas fa-angle-right" /></Link>
+							<CSSTransition in={dropdownFlag} timeout={500} classNames={'dropdownFlag-'} unmountOnExit={true} >
+								<DropdownFlag dropdownFlag={dropdownFlag} setDropdownFlag={setDropdownFlag} setHambClick={setHambClick} />
+							</CSSTransition>
+						</li>
+						<li className="menu__item login">
+							<Link to='/login' onClick={mobileMenuClose} >connexion</Link>
+						</li>
+					</ul>
+
 				</div>
-				<ul className={`navbar__menu ${hambClick ? 'active' : ''}`} >
-					<div className="menu__separator"></div>
-					<li className="menu__item about">
-						<Link to='/about' onClick={mobileMenuClose} >à propos</Link>
-					</li>
-					<li className="menu__item forum">
-						<Link to='/forum' onClick={mobileMenuClose} >forum</Link>
-					</li>
-					<li className="menu__item blog">
-						<a href='http://www.blog.afvp.net/' target="_blank" rel="noopener noreferrer" onClick={mobileMenuClose}>blog</a>
-					</li>
-					<li className="menu__item flag" onMouseEnter={showDropdownFlag} onMouseLeave={hideDropdownFlag}>
-						<Link to='#' onClick={handleDropdownFlag} >flag <AngleDown className="fas fa-angle-down" /> <AngleRight className="fas fa-angle-right" /></Link>
-						<CSSTransition in={dropdownFlag} timeout={500} classNames={'dropdownFlag-'} unmountOnExit={true} >
-							<DropdownFlag dropdownFlag={dropdownFlag} setDropdownFlag={setDropdownFlag} setHambClick={setHambClick} />
-						</CSSTransition>
-					</li>
-					<li className="menu__item login">
-						<Link to='/signinsignup' onClick={mobileMenuClose} >connexion</Link>
-					</li>
-				</ul>
 			</nav>
 		</header>
 	)

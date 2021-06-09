@@ -1,0 +1,25 @@
+@import "./../../sass/variables";
+
+.sign-up-member-page {
+   margin-top: $bar-margin;
+
+   .sign-up-member-titlebar {
+      background-color: $duck;
+      @include gray-blue-shadow;
+
+      .titlebar-title {
+         color: white;
+         @include fluid-section-title;
+         padding-top: $bar-title-padding;
+         padding-bottom: $bar-title-padding;
+      }
+   }
+
+   .sign-up-member-section {
+      display: flex;
+
+      .row {
+         width: 100vw;
+      }
+   }
+}

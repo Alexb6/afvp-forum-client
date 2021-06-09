@@ -1,0 +1,17 @@
+@import "./../../../../sass/variables";
+
+.sign-up {
+	width: 100vw;
+	.sign-up-title {
+		@include fluid-title-h2;
+		color: $duck;
+	}
+
+	.sign-up-connect-account {
+		@include grayed-message;
+	}
+
+	form button {
+		margin-bottom: 25px;
+	}
+}
