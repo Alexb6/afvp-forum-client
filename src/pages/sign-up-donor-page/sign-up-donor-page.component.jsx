@@ -1,5 +1,5 @@
 import React from 'react';
-import SignUpDonor from './../../components/form/form-sign-up/sign-up-donor/sign-up-donor.component';
+import SignUpDonor from './sign-up-donor/sign-up-donor.component';
 
 import './sign-up-donor-page.styles.scss';
 

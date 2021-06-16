@@ -5,11 +5,10 @@ import './form-select.styles.scss';
 const FormOptionsSelect = ({ onChange, label, ...otherProps }) => (
    <div className="form-select">
       {
-         label ?
-            (<label className={`${otherProps.value.length ? 'shrink' : ''} input-label`} >
-               {label}
-            </label>)
-            : null
+         label &&
+         (<label className={`${otherProps.value.length ? 'shrink' : ''} input-label`} >
+            {label}
+         </label>)
       }
       <select className="select-input" onChange={onChange} {...otherProps}>
          <option value="" disabled>{otherProps.placeholder}</option>

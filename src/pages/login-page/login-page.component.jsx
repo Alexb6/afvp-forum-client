@@ -1,6 +1,6 @@
 import React from 'react';
-import SignInMember from './../../components/form/form-sign-in/sign-in-member/sign-in-member.component';
-import SignInDonor from './../../components/form/form-sign-in/sign-in-donor/sign-in-donor.component';
+import SignInMember from './sign-in-member/sign-in-member.component';
+import SignInDonor from './sign-in-donor/sign-in-donor.component';
 
 import './login-page.styles.scss';
 

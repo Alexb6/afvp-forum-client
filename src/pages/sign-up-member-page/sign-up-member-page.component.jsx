@@ -1,5 +1,5 @@
 import React from 'react';
-import SignUpMember from './../../components/form/form-sign-up/sign-up-member/sign-up-member.component';
+import SignUpMember from './sign-up-member/sign-up-member.component';
 
 import './sign-up-member-page.styles.scss';
 

@@ -16,7 +16,7 @@ const ContactPage = () => (
 			<h1 className="titlebar-title container">Contacts</h1>
 		</div>
 		<div className="contact-section container">
-			<div className="row">
+			<div className="row contact-row">
 				<div className="contact-details col-md-6 col-sm-12 mb-3">
 					<h2 className="details-title">Contactez-nous</h2>
 					<div className="details-location">

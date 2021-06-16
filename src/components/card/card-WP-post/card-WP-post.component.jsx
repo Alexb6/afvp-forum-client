@@ -2,9 +2,9 @@ import React from 'react';
 import parse from 'html-react-parser';
 // import Moment from 'react-moment';
 
-import './card-post.styles.scss';
+import './card-WP-post.styles.scss';
 
-const CardPost = ({ image, author, date, title, excerpt, link }) => (
+const CardWPPost = ({ image, author, date, title, excerpt, link }) => (
 	<div className="card col-md-6 col-lg-4" >
 		<div className="card-inner">
 			<div className="card__image" style={image ? { backgroundImage: `url(${image})` } : { background: 'linear-gradient()' }} />
@@ -25,4 +25,4 @@ const CardPost = ({ image, author, date, title, excerpt, link }) => (
 	</div>
 );
 
-export default CardPost;
+export default CardWPPost;

@@ -18,6 +18,10 @@
 	.contact-section {
 		display: flex;
 
+		.contact-row {
+			width: 100vw;
+		}
+
 		.contact-details {
 			.details-title {
 				@include fluid-title-h2;
