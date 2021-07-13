@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { blogOrigin } from './../../../assets-src/data/site-origins';
 import CardWPPost from '../../../components/card/card-WP-post/card-WP-post.component';
 import LoadingSpinner from './../../../components/loading-spinner/loading-spinner.component';
 
@@ -19,7 +18,7 @@ class WpArticles extends React.Component {
 
 	componentDidMount() {
 		this.setState({ isLoading: true }, () => {
-			axios.get(`${blogOrigin}/wp-json/wp/v2/posts?per_page=3&lang=fr`)
+			axios.get(`${process.env.REACT_APP_BLOG_ORIGIN}/wp-json/wp/v2/posts?per_page=3&lang=fr`)
 				.then(res => {
 					this.setState({ isLoading: false, posts: res.data }, /* () => console.log(this.state.posts) */);
 				}).catch(error => {

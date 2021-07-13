@@ -1,4 +1,5 @@
 import React from 'react';
+
 import FormInput from '../../../components/form/form-input/form-input.component';
 import CustomButton from '../../../components/button/custom-button.component';
 import FormTextArea from '../../../components/form/form-textarea/form-text-area.component';
@@ -8,7 +9,6 @@ import { checkEmail, checkPassword, checkPasswordConfirm, formIsValid } from '..
 import ModalPopUp from '../../../components/modal/modal-popup/modal-popup.component';
 import ModalErrorPopUp from './../../../components/modal/modal-error-popup.component';
 import { scrollToTop } from '../../../utils/controllers/scrollToTop';
-import { serverOrigin } from '../../../assets-src/data/site-origins';
 import LoadingSpinner from '../../../components/loading-spinner/loading-spinner.component';
 
 import './sign-up-member.styles.scss';
@@ -43,8 +43,10 @@ class SignUpMember extends React.Component {
 			const { gender, family_name, first_name, email, password, pass_confirm, biography } = this.state;
 			try {
 				this.setState({ isLoading: true });
-				const response = await fetch(`${serverOrigin}/api/v1/members/signup`, {
+				const response = await fetch(`${process.env.REACT_APP_SERVER_ORIGIN}/api/v1/members/signup`, {
 					method: 'POST',
+					credentials: 'include',
+					mode: 'cors',
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({
 						gender, family_name, first_name, email, password, pass_confirm, biography
@@ -97,9 +99,9 @@ class SignUpMember extends React.Component {
 			<div className="sign-up col-xl-7 col-lg-8 col-md-10 col-sm-10 col-12 mb-3">
 				{/* <CustomButton onClick={this.openModal} className="custom-button--positive--duck">Modal</CustomButton> */}
 				<ModalPopUp open={isModalOpen} closeModal={this.closeModal} headerClass='valid' title="Demande envoyée" footerClose>
-					Nous vous enverrons une réponse par courriel !
+					Nous vous remercions pour votre demande d'adhésion. Vous recevrez une réponse par courriel !
 				</ModalPopUp>
-				<ModalErrorPopUp title="Une erreur est survenue" error={error} closeModal={this.errorHandler} />
+				<ModalErrorPopUp title="Une erreur est survenue" errorMsg={error} closeModal={this.errorHandler} />
 				{isLoading && <LoadingSpinner asOverlay />}
 				<h2 className="sign-up-title">J'adhère à l'AFVP</h2>
 				<p>Je crée un compte pour commencer mon processus d'adhésion à l'association.</p>

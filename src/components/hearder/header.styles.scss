@@ -13,6 +13,13 @@
 	background-color: white;
 	padding: 0;
 
+	.fa-angle-down {
+		width: 10px;
+		position: relative;
+		top: -1px;
+		margin-left: 1px;
+	}
+
 	.navbar__inner {
 		display: flex;
 		justify-content: space-between;
@@ -35,6 +42,7 @@
 			position: relative;
 			top: 6px;
 			display: flex;
+			align-items: center;
 			margin-bottom: 0;
 
 			.menu__separator {
@@ -65,13 +73,6 @@
 						display: none;
 						width: 9px;
 					}
-
-					.fa-angle-down {
-						width: 10px;
-						position: relative;
-						top: -1px;
-						margin-left: 1px;
-					}
 				}
 
 				&:last-child {
@@ -91,6 +92,28 @@
 				.dropdownFlag--exit-active {
 					opacity: 0;
 					transition: opacity 0.5s ease;
+				}
+			}
+
+			.current-user {
+				display: flex;
+				align-items: center;
+
+				.default-user {
+					width: 32px;
+					height: 32px;
+					margin-right: 7px;
+				}
+
+				.user-name {
+					color: $gray-anthracite;
+					background-color: transparent;
+					font-family: $font-highlight;
+					font-weight: 600;
+					font-size: 0.9rem;
+					text-transform: uppercase;
+					position: relative;
+					top: 1px;
 				}
 			}
 		}
@@ -127,7 +150,7 @@
 
 			.navbar__menu {
 				flex-direction: column;
-				background-color: $gray-blue-extra-light;
+				background-color: white;
 				width: 100vw;
 				min-height: 100vh;
 				position: absolute;

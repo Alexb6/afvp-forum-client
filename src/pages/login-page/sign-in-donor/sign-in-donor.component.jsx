@@ -5,7 +5,6 @@ import CustomButton from '../../../components/button/custom-button.component';
 import { checkEmail, checkPassword, formIsValid } from '../../../utils/controllers/form-contollers';
 import ModalErrorPopUp from './../../../components/modal/modal-error-popup.component';
 import { scrollToTop } from '../../../utils/controllers/scrollToTop';
-import { serverOrigin } from '../../../assets-src/data/site-origins';
 import LoadingSpinner from '../../../components/loading-spinner/loading-spinner.component';
 
 import './sign-in-donor.styles.scss';
@@ -33,8 +32,10 @@ class SignInDonor extends React.Component {
 			const { email, password } = this.state;
 			try {
 				this.setState({ isLoading: true });
-				const response = await fetch(`${serverOrigin}/api/v1/donors/login`, {
+				const response = await fetch(`${process.env.REACT_APP_SERVER_ORIGIN}/api/v1/donors/login`, {
 					method: 'POST',
+					credentials: 'include',
+					mode: 'cors',
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({ email, password })
 				});
@@ -70,19 +71,25 @@ class SignInDonor extends React.Component {
 
 	errorHandler = () => this.setState({ error: '' });
 
+	// Fix Warning: Can't perform a React state update on an unmounted component
+	componentWillUnmount() {
+		this.setState = (state, callback) => { return };
+	};
+
+
 	render() {
 		const { formErrors, isLoading, error } = this.state;
 		return (
 			<div className="sign-in col-md-6 col-sm-12 mb-3">
-				<ModalErrorPopUp title="Erreur de connexion" error={error} closeModal={this.errorHandler} />
+				<ModalErrorPopUp title="Erreur de connexion" errorMsg={error} closeModal={this.errorHandler} />
 				{isLoading && <LoadingSpinner asOverlay />}
 				<h2 className="sign-in-title">Je suis un donateur</h2>
 				<p>Se connecter avec mon courriel et mot de passe</p>
 				<p className="sign-in-create-account">Je ne suis pas encore donateur, je <a href="/sign-up-donor">crée un compte</a> pour soutenir l'association.</p>
 				<form onSubmit={this.handleSubmit} autoComplete="off">
-					<FormInput type="email" name="email" label="Courriel" value={this.state.email} required onChange={this.handleChange} />
+					<FormInput type="email" name="email" label="Courriel*" value={this.state.email} required onChange={this.handleChange} />
 					{formErrors.email.length > 0 && (<FormErrorMessage >{formErrors.email}</FormErrorMessage>)}
-					<FormInput type="password" name="password" label="Mot de passe" value={this.state.password} required onChange={this.handleChange} />
+					<FormInput type="password" name="password" label="Mot de passe*" value={this.state.password} required onChange={this.handleChange} />
 					{formErrors.password.length > 0 && (<FormErrorMessage >{formErrors.password}</FormErrorMessage>)}
 					<CustomButton type="submit" className="custom-button--positive--duck">Se connecter</CustomButton>
 				</form>

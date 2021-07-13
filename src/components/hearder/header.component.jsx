@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import Burger from 'react-css-burger';
+import { connect } from 'react-redux';
 
 import { ReactComponent as Logo } from './../../assets-src/logo/logo site 120-46px v02_01.svg';
 import { ReactComponent as AngleRight } from './../../assets-src/icons/angle-right-solid.svg';
 import { ReactComponent as AngleDown } from './../../assets-src/icons/angle-down-solid.svg';
+import { ReactComponent as DefaultUserPhoto } from './../../assets-src/icons/default-user.svg';
 
 import DropdownFlag from './dropdown-flag/dropdown-flag.component';
 
 import './header.styles.scss';
 
-const Header = () => {
+const Header = ({ currentUser }) => {
 	const [hambClick, setHambClick] = useState(false);
 	const [dropdownFlag, setDropdownFlag] = useState(false);
 
@@ -53,9 +55,19 @@ const Header = () => {
 								<DropdownFlag dropdownFlag={dropdownFlag} setDropdownFlag={setDropdownFlag} setHambClick={setHambClick} />
 							</CSSTransition>
 						</li>
-						<li className="menu__item login">
-							<Link to='/login' onClick={mobileMenuClose} >connexion</Link>
-						</li>
+						{currentUser ?
+							<li className="menu__item login">
+								<Link className="current-user" to='/user' onClick={mobileMenuClose}>
+									<span className="default-user"><DefaultUserPhoto /></span>
+									<span className="user-name">{currentUser.first_name} <AngleDown className="fas fa-angle-down" /></span>
+								</Link>
+							</li>
+
+							:
+							<li className="menu__item login">
+								<Link to='/login' onClick={mobileMenuClose}>connexion</Link>
+							</li>
+						}
 					</ul>
 
 				</div>
@@ -64,4 +76,9 @@ const Header = () => {
 	)
 };
 
-export default Header;
+
+const mapStateToProps = state => ({
+	currentUser: state.user.currentUser
+})
+
+export default connect(mapStateToProps)(Header);

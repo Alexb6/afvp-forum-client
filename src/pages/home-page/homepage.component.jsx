@@ -19,8 +19,8 @@ const HomePage = () => (
 			<h1 className="donate__title">Soutenir les actions de l'association</h1>
 			<div className="donate__text mb-4">
 				Les voyages, l’aide aux étudiants et stagiaires vietnamiens, les aides en équipements, l’organisation des sessions de formation, etc., ont un coût et les dons sont essentiels à la réalisation de ces objectifs. <br />
-               Les dons ouvrent droit à crédit d’impôt en France (de 66 % pour les particuliers, dans la limite de 20 % du revenu imposable, de 60 % pour les personnes morales dans la limite de 20 000 € ou 5 ‰ (5 pour mille) du chiffre d'affaires annuel hors taxe. Un certificat fiscal vous est adressé par retour.
-            </div>
+				Les dons ouvrent droit à crédit d’impôt en France (de 66 % pour les particuliers, dans la limite de 20 % du revenu imposable, de 60 % pour les personnes morales dans la limite de 20 000 € ou 5 ‰ (5 pour mille) du chiffre d'affaires annuel hors taxe. Un certificat fiscal vous est adressé par retour.
+			</div>
 			<Link to='/sign-up-donor'><CustomButton className="custom-button--positive--duck">Je donne</CustomButton></Link>
 		</div>
 	</div >

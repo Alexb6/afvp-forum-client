@@ -7,7 +7,6 @@ import { checkEmail, checkPassword, checkPasswordConfirm, formIsValid } from '..
 import ModalPopUp from '../../../components/modal/modal-popup/modal-popup.component';
 import ModalErrorPopUp from '../../../components/modal/modal-error-popup.component';
 import { scrollToTop } from '../../../utils/controllers/scrollToTop';
-import { serverOrigin } from '../../../assets-src/data/site-origins';
 import LoadingSpinner from '../../../components/loading-spinner/loading-spinner.component';
 
 import './sign-up-donor.styles.scss';
@@ -43,8 +42,10 @@ class SignUpDonor extends React.Component {
       if (formIsValid(this.state.formErrors)) {
          const { gender, family_name, first_name, email, password, pass_confirm, address, country, firm } = this.state;
          try {
-            const response = await fetch(`${serverOrigin}/api/v1/donors/signup`, {
+            const response = await fetch(`${process.env.REACT_APP_SERVER_ORIGIN}/api/v1/donors/signup`, {
                method: 'POST',
+               credentials: 'include',
+               mode: 'cors',
                headers: { "Content-Type": "application/json" },
                body: JSON.stringify({
                   gender, family_name, first_name, email, password, pass_confirm, address, country, firm
@@ -99,7 +100,7 @@ class SignUpDonor extends React.Component {
             <ModalPopUp open={isModalOpen} closeModal={this.closeModal} headerClass='valid' title="Compte crée" footerClose>
                Vous êtes inscrit en tant que donateur. Vous pouvez désormais faire des dons dans votre espace personnel !
             </ModalPopUp>
-            <ModalErrorPopUp error={error} closeModal={this.errorHandler} />
+            <ModalErrorPopUp errorMsg={error} closeModal={this.errorHandler} />
             {isLoading && <LoadingSpinner asOverlay />}
             <h2 className="sign-up-title">Je soutiens l'AFVP</h2>
             <p>Veuillez créer un compte pour faire un don à l'association. Nous aurons besoin de ces informations pour vous remettre un justificatif fiscal.</p>
