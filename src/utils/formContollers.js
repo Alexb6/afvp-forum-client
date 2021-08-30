@@ -19,4 +19,4 @@ exports.formIsValid = formErrors => {
 		val.length && (isValid = false);
 	});
 	return isValid;
-};
+}

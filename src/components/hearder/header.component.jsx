@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { ReactComponent as Logo } from './../../assets-src/logo/logo site 120-46px v02_01.svg';
 import { ReactComponent as AngleRight } from './../../assets-src/icons/angle-right-solid.svg';
 import { ReactComponent as AngleDown } from './../../assets-src/icons/angle-down-solid.svg';
-import { ReactComponent as DefaultUserPhoto } from './../../assets-src/icons/default-user.svg';
+import { ReactComponent as DefaultUser } from './../../assets-src/icons/user.svg';
 
 import DropdownFlag from './dropdown-flag/dropdown-flag.component';
 
@@ -58,11 +58,10 @@ const Header = ({ currentUser }) => {
 						{currentUser ?
 							<li className="menu__item login">
 								<Link className="current-user" to='/user' onClick={mobileMenuClose}>
-									<span className="default-user"><DefaultUserPhoto /></span>
-									<span className="user-name">{currentUser.first_name} <AngleDown className="fas fa-angle-down" /></span>
+									<span className="default-user"><DefaultUser /></span>
+									<span className="user-name">{currentUser.first_name}</span>
 								</Link>
 							</li>
-
 							:
 							<li className="menu__item login">
 								<Link to='/login' onClick={mobileMenuClose}>connexion</Link>

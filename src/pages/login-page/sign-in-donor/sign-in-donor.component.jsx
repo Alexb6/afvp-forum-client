@@ -1,11 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import FormInput from '../../../components/form/form-input/form-input.component';
 import FormErrorMessage from '../../../components/form/form-error-message/form-error-message.component';
 import CustomButton from '../../../components/button/custom-button.component';
-import { checkEmail, checkPassword, formIsValid } from '../../../utils/controllers/form-contollers';
+import { checkEmail, checkPassword, formIsValid } from '../../../utils/formContollers';
 import ModalErrorPopUp from './../../../components/modal/modal-error-popup.component';
-import { scrollToTop } from '../../../utils/controllers/scrollToTop';
+import { scrollToTop } from '../../../utils/scrollToTop';
 import LoadingSpinner from '../../../components/loading-spinner/loading-spinner.component';
+// import { setCurrentUser } from '../../../redux/user/user-action';
+// import { setAccessToken } from '../../../redux/auth/auth-action';
+// import { loginUserService } from '../../../services/auth';
+import { userLoginAsync } from '../../../redux/auth/auth-action-functions';
 
 import './sign-in-donor.styles.scss';
 
@@ -30,19 +36,15 @@ class SignInDonor extends React.Component {
 		e.preventDefault();
 		if (formIsValid(this.state.formErrors)) {
 			const { email, password } = this.state;
+			const { userLoginAsync } = this.props;
 			try {
 				this.setState({ isLoading: true });
-				const response = await fetch(`${process.env.REACT_APP_SERVER_ORIGIN}/api/v1/donors/login`, {
-					method: 'POST',
-					credentials: 'include',
-					mode: 'cors',
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({ email, password })
-				});
-				const parseResponse = await response.json();
-				if (!response.ok) {
-					throw new Error(parseResponse.message);
-				}
+				// const response = await loginUserService('donors', email, password);
+				// setCurrentUser(response.data.user);
+				// setAccessToken(response.data.token);
+				await userLoginAsync(['donors', email, password]);
+				if (this.props.loginError) throw new Error(this.props.loginError);
+
 				this.setState({ isLoading: false });
 				scrollToTop();
 				this.setState({ email: '', password: '' });
@@ -98,4 +100,13 @@ class SignInDonor extends React.Component {
 	}
 }
 
-export default SignInDonor;
+const mapStateToProps = ({ auth }) => ({
+	loginError: auth.loginError
+});
+const mapDispatchToProps = dispatch => ({
+	// setCurrentUser: user => dispatch(setCurrentUser(user)),
+	// setAccessToken: token => dispatch(setAccessToken(token))
+	userLoginAsync: (userData) => dispatch(userLoginAsync(userData))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignInDonor);

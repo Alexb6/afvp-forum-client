@@ -1,13 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import FormInput from '../../../components/form/form-input/form-input.component';
 import CustomButton from '../../../components/button/custom-button.component';
 import FormOptionsSelect from '../../../components/form/form-select/form-select.component';
 import FormErrorMessage from '../../../components/form/form-error-message/form-error-message.component';
-import { checkEmail, checkPassword, checkPasswordConfirm, formIsValid } from '../../../utils/controllers/form-contollers';
+import { checkEmail, checkPassword, checkPasswordConfirm, formIsValid } from '../../../utils/formContollers';
 import ModalPopUp from '../../../components/modal/modal-popup/modal-popup.component';
 import ModalErrorPopUp from '../../../components/modal/modal-error-popup.component';
-import { scrollToTop } from '../../../utils/controllers/scrollToTop';
+import { scrollToTop } from '../../../utils/scrollToTop';
 import LoadingSpinner from '../../../components/loading-spinner/loading-spinner.component';
+// import { signUpUserService } from '../../../services/auth';
+import { userSignUpAsync } from '../../../redux/auth/auth-action-functions';
 
 import './sign-up-donor.styles.scss';
 
@@ -41,29 +45,21 @@ class SignUpDonor extends React.Component {
       e.preventDefault();
       if (formIsValid(this.state.formErrors)) {
          const { gender, family_name, first_name, email, password, pass_confirm, address, country, firm } = this.state;
+         const userData = { gender, family_name, first_name, email, password, pass_confirm, address, country, firm };
+         const { userSignUpAsync } = this.props;
          try {
-            const response = await fetch(`${process.env.REACT_APP_SERVER_ORIGIN}/api/v1/donors/signup`, {
-               method: 'POST',
-               credentials: 'include',
-               mode: 'cors',
-               headers: { "Content-Type": "application/json" },
-               body: JSON.stringify({
-                  gender, family_name, first_name, email, password, pass_confirm, address, country, firm
-               })
-            });
-            const parseResponse = await response.json();
-            if (!response.ok) {
-               throw new Error(parseResponse.message);
-            }
+            // await signUpUserService('donors', userData);
+            await userSignUpAsync(['donors', userData]);
+            if (this.props.signUpError) throw new Error(this.props.signUpError);
+
             this.setState({ isLoading: false });
             scrollToTop();
             this.openModal();
             this.setState({ gender: '', family_name: '', first_name: '', email: '', password: '', pass_confirm: '', address: '', country: '', firm: '' });
          } catch (err) {
             scrollToTop();
-            this.setState({ isLoading: false, error: err.message || 'Une erreur est survenue, votre demande n\'a pas été envoyée. Veuillez essayer plus tard.' });
+            this.setState({ isLoading: false, error: this.props.signUpError || 'Une erreur est survenue, votre demande n\'a pas été envoyée. Veuillez essayer plus tard.' });
          }
-
       }
    }
 
@@ -125,4 +121,10 @@ class SignUpDonor extends React.Component {
    }
 }
 
-export default SignUpDonor;
+const mapStateToProps = ({ auth }) => ({
+   signUpError: auth.signUpError
+});
+const mapDispatchToProps = dispatch => ({
+   userSignUpAsync: (userData) => dispatch(userSignUpAsync(userData))
+})
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpDonor);

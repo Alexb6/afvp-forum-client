@@ -4,11 +4,14 @@ import { connect } from 'react-redux';
 import FormInput from '../../../components/form/form-input/form-input.component';
 import FormErrorMessage from '../../../components/form/form-error-message/form-error-message.component';
 import CustomButton from '../../../components/button/custom-button.component';
-import { checkEmail, checkPassword, formIsValid } from '../../../utils/controllers/form-contollers';
+import { checkEmail, checkPassword, formIsValid } from '../../../utils/formContollers';
 import ModalErrorPopUp from './../../../components/modal/modal-error-popup.component';
-import { scrollToTop } from '../../../utils/controllers/scrollToTop';
+import { scrollToTop } from '../../../utils/scrollToTop';
 import LoadingSpinner from '../../../components/loading-spinner/loading-spinner.component';
-import { setCurrentUser } from './../../../redux/user/user.action';
+// import { loginUserService } from './../../../services/auth';
+// import { setCurrentUser } from '../../../redux/user/user-action';
+// import { userLoginSuccess } from '../../../redux/auth/auth-action';
+import { userLoginAsync } from '../../../redux/auth/auth-action-functions';
 
 import './sign-in-member.styles.scss';
 
@@ -33,31 +36,22 @@ class SignInMember extends React.Component {
 		e.preventDefault();
 		if (formIsValid(this.state.formErrors)) {
 			const { email, password } = this.state;
+			// const { setCurrentUser, userLoginSuccess } = this.props;
+			const { userLoginAsync } = this.props;
 			try {
 				this.setState({ isLoading: true });
-				const response = await fetch(`${process.env.REACT_APP_SERVER_ORIGIN}/api/v1/members/login`, {
-					method: 'POST',
-					credentials: 'include',
-					mode: 'cors',
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({ email, password })
-				});
-				const parseResponse = await response.json();
-				console.log(parseResponse);
-				if (parseResponse.status === 'Fail') {
-					throw new Error(parseResponse.message);
-				}
+				// const response = await loginUserService('members', email, password);
+				// setCurrentUser(response.data.user);
+				// userLoginSuccess(response.data.token);
+				await userLoginAsync(['members', email, password]);
+				if (this.props.loginError) throw new Error(this.props.loginError);
 
-				this.props.setCurrentUser(parseResponse.data.user);
-				if (!response.ok) {
-					throw new Error(parseResponse.message);
-				}
 				this.setState({ isLoading: false });
 				scrollToTop();
 				this.setState({ email: '', password: '' });
 			} catch (err) {
 				scrollToTop();
-				this.setState({ isLoading: false, error: err.message || 'Votre demande de connexion n\'a pas été envoyée. Veuillez essayer plus tard.' });
+				this.setState({ isLoading: false, error: this.props.loginError || 'Une erreur s\'est produite. Veuillez essayer de vous connecter plus tard.' });
 			}
 		}
 	}
@@ -105,9 +99,13 @@ class SignInMember extends React.Component {
 		)
 	}
 }
-
+const mapStateToProps = ({ auth }) => ({
+	loginError: auth.loginError
+});
 const mapDispatchToProps = dispatch => ({
-	setCurrentUser: user => dispatch(setCurrentUser(user))
+	// setCurrentUser: user => dispatch(setCurrentUser(user)),
+	// userLoginSuccess: token => dispatch(userLoginSuccess(token)),
+	userLoginAsync: (userData) => dispatch(userLoginAsync(userData))
 })
 
-export default connect(null, mapDispatchToProps)(SignInMember);
+export default connect(mapStateToProps, mapDispatchToProps)(SignInMember);
