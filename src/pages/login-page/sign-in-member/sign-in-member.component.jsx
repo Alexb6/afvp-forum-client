@@ -3,21 +3,18 @@ import { connect } from 'react-redux';
 
 import FormInput from '../../../components/form/form-input/form-input.component';
 import FormErrorMessage from '../../../components/form/form-error-message/form-error-message.component';
-import CustomButton from '../../../components/button/custom-button.component';
+import CustomButton from '../../../components/button/custom-button/custom-button.component';
 import { checkEmail, checkPassword, formIsValid } from '../../../utils/formContollers';
 import ModalErrorPopUp from './../../../components/modal/modal-error-popup.component';
 import { scrollToTop } from '../../../utils/scrollToTop';
 import LoadingSpinner from '../../../components/loading-spinner/loading-spinner.component';
-// import { loginUserService } from './../../../services/auth';
-// import { setCurrentUser } from '../../../redux/user/user-action';
-// import { userLoginSuccess } from '../../../redux/auth/auth-action';
 import { userLoginAsync } from '../../../redux/auth/auth-action-functions';
 
 import './sign-in-member.styles.scss';
 
 class SignInMember extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			email: '',
@@ -36,13 +33,10 @@ class SignInMember extends React.Component {
 		e.preventDefault();
 		if (formIsValid(this.state.formErrors)) {
 			const { email, password } = this.state;
-			// const { setCurrentUser, userLoginSuccess } = this.props;
 			const { userLoginAsync } = this.props;
 			try {
 				this.setState({ isLoading: true });
-				// const response = await loginUserService('members', email, password);
-				// setCurrentUser(response.data.user);
-				// userLoginSuccess(response.data.token);
+
 				await userLoginAsync(['members', email, password]);
 				if (this.props.loginError) throw new Error(this.props.loginError);
 
@@ -69,7 +63,7 @@ class SignInMember extends React.Component {
 			default:
 				break;
 		}
-		this.setState({ formErrors, [name]: value }/* , () => console.log(this.state) */);
+		this.setState({ formErrors, [name]: value });
 	}
 
 	errorHandler = () => this.setState({ error: '' });
@@ -103,8 +97,6 @@ const mapStateToProps = ({ auth }) => ({
 	loginError: auth.loginError
 });
 const mapDispatchToProps = dispatch => ({
-	// setCurrentUser: user => dispatch(setCurrentUser(user)),
-	// userLoginSuccess: token => dispatch(userLoginSuccess(token)),
 	userLoginAsync: (userData) => dispatch(userLoginAsync(userData))
 })
 

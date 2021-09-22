@@ -24,7 +24,7 @@ const deleteAllCookies = () => {
 
 export const userSignUpAsync = (userData) => async dispatch => {
    dispatch(userSignUpStart());
-
+   // userData is like so: [userResource = String, userInfos = Object]
    const result = await signUpUserService(...userData);
 
    if (!result) {
@@ -42,7 +42,7 @@ export const userSignUpAsync = (userData) => async dispatch => {
 
 export const userLoginAsync = (userData) => async dispatch => {
    dispatch(userLoginStart());
-
+   // userData is like so: [userResource = String, email = state, password = state]
    const result = await loginUserService(...userData);
 
    if (!result) {

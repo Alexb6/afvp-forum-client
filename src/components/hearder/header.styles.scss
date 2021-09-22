@@ -9,7 +9,7 @@
 	position: fixed;
 	top: 0;
 	width: 100%;
-	z-index: 10;
+	z-index: 100;
 	background-color: white;
 	padding: 0;
 
@@ -62,7 +62,6 @@
 					font-size: 0.9rem;
 					text-decoration: none;
 					text-transform: uppercase;
-					text-decoration: none;
 
 					&:hover {
 						color: $blue;
@@ -142,23 +141,6 @@
 				display: block;
 				position: relative;
 				top: 8px;
-
-				button {
-					margin: 0;
-
-					.burger_hamburger-box__3lYk7 span {
-						background-color: $gray-anthracite;
-						width: 37px;
-						height: 3px;
-
-						&::after,
-						&::before {
-							background-color: $gray-anthracite;
-							width: 37px;
-							height: 3px;
-						}
-					}
-				}
 			}
 
 			.navbar__menu {

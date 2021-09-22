@@ -4,9 +4,9 @@ export const userSignUpStart = () => ({
    type: AuthActionTypes.USER_SIGNUP_START
 });
 
-export const userSignUpFailure = (error = 'Un problème est survenu. Veuillez réessayer plus tard.') => ({
+export const userSignUpFailure = (errorMessage = 'Mous n\'avons réussi à vous inscrire. Veuillez réessayer plus tard.') => ({
    type: AuthActionTypes.USER_SIGNUP_FAILURE,
-   payload: { error }
+   payload: { errorMessage }
 });
 
 export const userSignUpSuccess = () => ({
@@ -17,9 +17,9 @@ export const userLoginStart = () => ({
    type: AuthActionTypes.USER_LOGIN_START
 });
 
-export const userLoginFailure = (error = 'Un problème est survenu. Veuillez réessayer plus tard.') => ({
+export const userLoginFailure = (errorMessage = 'Un problème est survenu lors de la connexion. Veuillez réessayer plus tard.') => ({
    type: AuthActionTypes.USER_LOGIN_FAILURE,
-   payload: { error }
+   payload: { errorMessage }
 });
 
 export const userLoginSuccess = token => ({
@@ -43,8 +43,3 @@ export const refreshTokenAbsent = () => ({
 export const refreshTokenEnd = () => ({
    type: AuthActionTypes.REFRESH_TOKEN_END
 });
-
-// export const setAccessToken = token => ({
-//    type: AuthActionTypes.SET_ACCESS_TOKEN,
-//    payload: token
-// });

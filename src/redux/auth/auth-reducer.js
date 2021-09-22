@@ -19,7 +19,7 @@ const authReducer = (state = INITIAL_STATE, action) => {
       case AuthActionTypes.USER_SIGNUP_FAILURE:
          return {
             ...state,
-            signUpError: action.payload.error
+            signUpError: action.payload.errorMessage
          }
       case AuthActionTypes.USER_SIGNUP_SUCCESS:
          return {
@@ -32,7 +32,7 @@ const authReducer = (state = INITIAL_STATE, action) => {
       case AuthActionTypes.USER_LOGIN_FAILURE:
          return {
             ...state,
-            loginError: action.payload.error
+            loginError: action.payload.errorMessage
          }
       case AuthActionTypes.USER_LOGIN_SUCCESS:
          if (localStorage.userLoggedOut) delete localStorage.userLoggedOut;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import Burger from 'react-css-burger';
+import { Spin as Hamburger } from 'hamburger-react'
 import { connect } from 'react-redux';
 
 import { ReactComponent as Logo } from './../../assets-src/logo/logo site 120-46px v02_01.svg';
@@ -36,7 +36,7 @@ const Header = ({ currentUser }) => {
 						<Logo className="logo" />
 					</Link>
 					<div className="navbar__hamburgers">
-						<Burger active={hambClick} burger='squeeze' onClick={hambugerClick} />
+						<Hamburger toggled={hambClick} toggle={hambugerClick} size={40} color="#464b4c" />
 					</div>
 					<ul className={`navbar__menu ${hambClick ? 'active' : ''}`} >
 						<div className="menu__separator"></div>

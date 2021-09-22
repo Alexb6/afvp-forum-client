@@ -1,7 +1,9 @@
 import { UserActionTypes } from './user-types';
 
 const INITITIAL_STATE = {
-   currentUser: null
+   currentUser: null,
+   userProfile: null,
+   userProfileError: null,
 }
 
 const userReducer = (state = INITITIAL_STATE, action) => {
@@ -14,6 +16,45 @@ const userReducer = (state = INITITIAL_STATE, action) => {
       case UserActionTypes.CLEAR_CURRENT_USER:
          return {
             ...INITITIAL_STATE
+         }
+      case UserActionTypes.GET_USER_PROFILE_START:
+         return {
+            ...state
+         }
+      case UserActionTypes.GET_USER_PROFILE_SUCCESS:
+         return {
+            ...state,
+            userProfile: action.payload
+         }
+      case UserActionTypes.GET_USER_PROFILE_FAILURE:
+         return {
+            ...state,
+            userProfileError: action.payload.errorMessage
+         }
+      case UserActionTypes.UPDATE_USER_PROFILE_START:
+         return {
+            ...state
+         }
+      case UserActionTypes.UPDATE_USER_PROFILE_SUCCESS:
+         return {
+            ...state,
+            userProfile: action.payload
+         }
+      case UserActionTypes.UPDATE_USER_PROFILE_IMAGE_SUCCESS:
+         return {
+            ...state,
+            userProfile: action.payload
+         }
+      case UserActionTypes.UPDATE_USER_PROFILE_FAILURE:
+         return {
+            ...state,
+            userProfileError: action.payload.errorMessage
+         }
+      case UserActionTypes.UPDATE_CURRENT_USER_FROM_PROFILE:
+         const { id, email, family_name, first_name, photo_url } = action.payload
+         return {
+            ...state,
+            currentUser: { id, email, family_name, first_name, photo_url }
          }
       default:
          return state;

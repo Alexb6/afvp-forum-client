@@ -1,30 +1,7 @@
-const API_URL = `${process.env.REACT_APP_SERVER_ORIGIN}/api/v1`;
-const headers = new Headers();
-headers.append('Content-Type', 'application/json');
+import API_URL from '../assets-src/data/API-Url';
+import {headers ,getCookieValue, setTokenAuthHeader, setXsrfHeader} from './_service-functions';
 
-const getCookieValue = cookieName => {
-   if (document.cookie) {
-      return document.cookie
-         .split('; ')
-         .find(el => el.startsWith(`${cookieName}=`))
-         .split('=')[1];
-   }
-   return
-}
-
-const setTokenAuthHeader = token => {
-   if (token) {
-      headers.append('Authorization', `Bearer ${token}`)
-   }
-}
-
-const setXsrfHeader = xsrfToken => {
-   if (xsrfToken) {
-      headers.append('xsrfToken', xsrfToken)
-   }
-}
-
-exports.signUpUserService = async (userResource, userInfos) => {
+export const signUpUserService = async (userResource, userInfos) => {
    try {
       const response = await fetch(`${API_URL}/${userResource}/signup`, {
          method: 'POST',
@@ -46,7 +23,7 @@ exports.signUpUserService = async (userResource, userInfos) => {
    }
 }
 
-exports.loginUserService = async (userResource, email, password) => {
+export const loginUserService = async (userResource, email, password) => {
    try {
       const response = await fetch(`${API_URL}/${userResource}/login`, {
          method: 'POST',
@@ -68,7 +45,7 @@ exports.loginUserService = async (userResource, email, password) => {
    }
 }
 
-exports.logoutUserService = async (accessToken) => {
+export const logoutUserService = async (accessToken) => {
    try {
       const userResource = getCookieValue('userResource');
       const xsrfToken = getCookieValue('xsrfToken');
@@ -91,7 +68,7 @@ exports.logoutUserService = async (accessToken) => {
    }
 }
 
-exports.refreshAccessTokenService = async () => {
+export const refreshAccessTokenService = async () => {
    try {
       const xsrfToken = getCookieValue('xsrfToken');
       if (xsrfToken) {

@@ -1,0 +1,99 @@
+@import "../../../sass/variables";
+
+.user-aside-menu {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   max-width: 250px;
+   border-right: 1px solid $gray-blue-light;
+
+   .user--infos {
+      margin-bottom: 0.8rem;
+
+      .user--photo--name {
+         display: flex;
+         align-items: center;
+         margin-bottom: 0.2rem;
+
+         .user--photo {
+            width: 55px;
+            height: 55px;
+            margin-right: 10px;
+            flex-shrink: 0;
+
+            .link {
+               width: 100%;
+               border-radius: 50%;
+            }
+
+            .photo--gradient {
+               width: 100%;
+               height: 100%;
+               @include gradient-user-photo;
+               border-radius: 50%;
+            }
+         }
+
+         .user--name {
+            @include user--name;
+         }
+      }
+
+      .user--role {
+         font-weight: 500;
+         font-size: 14px;
+         text-align: center;
+      }
+   }
+
+   #logout {
+      width: 100%;
+   }
+
+   .user--menu,
+   .admin--menu {
+      // padding: 15px;
+      list-style-type: none;
+      min-width: 200px;
+
+      li {
+         border-bottom: 1px solid $gray-blue-light;
+         padding: 10px 15px;
+         margin-bottom: 6px;
+         cursor: pointer;
+
+         a {
+            text-decoration: none;
+            color: $duck;
+            font-weight: 500;
+            font-size: 14px;
+         }
+      }
+
+      .user--menu--item:hover {
+         transition: all 0.2s ease-out;
+         background-color: rgba(0, 140, 255, 0.05);
+
+         a {
+            color: $blue;
+         }
+      }
+
+      .admin--menu--item:hover {
+         transition: all 0.2s ease-out;
+         background-color: rgba(255, 152, 8, 0.05);
+
+         a {
+            color: $yellow;
+         }
+      }
+   }
+
+   .admin--space {
+      position: relative;
+      left: -35px;
+      color: $orange;
+      font-size: 1.15rem;
+      font-weight: 600;
+   }
+}

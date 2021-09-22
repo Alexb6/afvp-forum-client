@@ -1,13 +1,13 @@
 import React from 'react';
 import FormInput from './../form-input/form-input.component';
 import FormTextArea from './../form-textarea/form-text-area.component';
-import CustomButton from './../../button/custom-button.component';
+import CustomButton from './../../button/custom-button/custom-button.component';
 
 import './contact.styles.scss';
 
 class ContactForm extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			name: '',

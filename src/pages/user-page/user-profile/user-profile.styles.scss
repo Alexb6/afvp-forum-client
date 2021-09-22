@@ -1,0 +1,74 @@
+@import "./../../../sass/variables";
+
+.profile--user {
+   .masonry-grid {
+      display: flex;
+      margin-left: -15px; /* gutter size offset */
+      width: auto;
+   }
+   .masonry-grid_column {
+      padding-left: 15px; /* gutter size */
+      background-clip: padding-box;
+   }
+
+   .masonry-grid_column > div {
+      /* change div to reference your elements you put in <Masonry> */
+      // background: grey;
+      margin-bottom: 15px;
+   }
+
+   button.return-button {
+      z-index: 10;
+   }
+
+   .profile--group {
+      border: 1px solid $gray-blue-light;
+      max-width: 430px;
+      min-width: 290px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      position: relative;
+
+      .section {
+         margin-bottom: 0.5rem;
+
+         .section--label {
+            color: $gray-blue;
+            font-size: 13px;
+            position: relative;
+            top: 3px;
+            width: 100%;
+         }
+         .section--data {
+            text-indent: 10px;
+            padding: 5px 0;
+            min-height: 1.8rem;
+            border-bottom: 1px solid $gray-blue-extra-light;
+            white-space: pre-line;
+         }
+      }
+
+      button.pencil-edit-button {
+         right: 8px;
+         top: 6px;
+         z-index: 10;
+      }
+   }
+
+   .profile--photo-name {
+      display: grid;
+      .section--photo {
+         justify-self: center;
+      }
+      .section--name {
+         @include user--name;
+         justify-self: center;
+         position: relative;
+
+         button.pencil-edit-button {
+            top: -3px;
+            right: -36px;
+         }
+      }
+   }
+}

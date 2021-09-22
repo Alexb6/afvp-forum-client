@@ -6,8 +6,8 @@ import LoadingSpinner from './../../../components/loading-spinner/loading-spinne
 import './wparticles.styles.scss';
 
 class WpArticles extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			isLoading: false,

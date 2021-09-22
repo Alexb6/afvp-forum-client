@@ -1,7 +1,7 @@
 import React from 'react';
 import HomeCarousel from './homecarousel/homecarousel.component';
 import WpArticles from './wp-articles/wparticles.component';
-import CustomButton from './../../components/button/custom-button.component';
+import CustomButton from './../../components/button/custom-button/custom-button.component';
 
 import { Link } from 'react-router-dom';
 import './homepage.styles.scss';

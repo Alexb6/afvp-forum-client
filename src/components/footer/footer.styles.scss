@@ -26,6 +26,7 @@
 				text-align: left;
 				h4 {
 					color: $gray-blue;
+					@include fluid-title-h4;
 				}
 
 				p {

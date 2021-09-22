@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import FormInput from '../../../components/form/form-input/form-input.component';
-import CustomButton from '../../../components/button/custom-button.component';
+import CustomButton from '../../../components/button/custom-button/custom-button.component';
 import FormTextArea from '../../../components/form/form-textarea/form-text-area.component';
 import FormOptionsSelect from '../../../components/form/form-select/form-select.component';
 import FormErrorMessage from '../../../components/form/form-error-message/form-error-message.component';
@@ -11,14 +11,13 @@ import ModalPopUp from '../../../components/modal/modal-popup/modal-popup.compon
 import ModalErrorPopUp from '../../../components/modal/modal-error-popup.component';
 import { scrollToTop } from '../../../utils/scrollToTop';
 import LoadingSpinner from '../../../components/loading-spinner/loading-spinner.component';
-// import { signUpUserService } from '../../../services/auth';
 import { userSignUpAsync } from '../../../redux/auth/auth-action-functions';
 
 import './sign-up-member.styles.scss';
 
 class SignUpMember extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			gender: '',
@@ -48,7 +47,6 @@ class SignUpMember extends React.Component {
 			const { userSignUpAsync } = this.props;
 			try {
 				this.setState({ isLoading: true });
-				// await signUpUserService('members', userInfos);
 				await userSignUpAsync(['members', userInfos]);
 				if (this.props.signUpError) throw new Error(this.props.signUpError);
 
@@ -82,7 +80,7 @@ class SignUpMember extends React.Component {
 			default:
 				break;
 		}
-		this.setState({ [name]: value }/* , () => console.log(this.state) */);
+		this.setState({ [name]: value });
 	}
 
 	closeModal = () => this.setState({ isModalOpen: false });

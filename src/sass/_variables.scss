@@ -9,9 +9,11 @@ Gray bleu foncé: #546365, rgba(84,99,101,0)
 Gray anthracite: #464B4C, rgba(70,75,76,0)
 Anthracite clair: #8A9293, rgba(138,146,147,0)
 Red: #cc1417, rgba(204,20,23,0)
+Yellow: #ffc107, rgba(255,193,7,0)
+Orange: #ff9808, rgba(255,152,8,0)
 Cyan: #00b8d8, rgba(0,184,216,0)
 Bleu: #008CFF, rgba(0,140,255,0)
-Duck clair: #247eb3, rgba(36,126,179,0)
+Duck clair: #116fa6, rgba(17,111,166,0)
 Duck: #1c4963, rgba(28,73,99,0)
 Navy: #021e34, rgba(2,30,52,0)
 
@@ -31,8 +33,10 @@ $spacer-l: 18px;
 $spacer-xl: 28px;
 
 /* Spacing for the top title bars */
-$bar-title-padding: calc(30px + (40 - 30) * ((100vw - 320px) / (1400 - 320)));
-$bar-margin: calc(10px + (24 - 10) * ((100vw - 320px) / (1400 - 320)));
+// $bar-title-padding: calc(30px + (40 - 30) * ((100vw - 320px) / (1400 - 320)));
+$bar-title-padding: calc(20px + (30 - 20) * ((100vw - 320px) / (1400 - 320)));
+// $bar-margin: calc(10px + (24 - 10) * ((100vw - 320px) / (1400 - 320)));
+$bar-margin: calc(5px + (20 - 5) * ((100vw - 320px) / (1400 - 320)));
 
 /* Header height */
 $header-height: 70px;
@@ -45,12 +49,14 @@ $gray-blue-extra-light: #f6f9f9;
 $gray-blue-light: #e9f3f5;
 $gray-blue: #88a5aa;
 $gray-blue-dark: #546365;
-$anthracite-light: #8a9293;
+$gray-anthracite-light: #8a9293;
 $gray-anthracite: #464b4c;
+$yellow: #ffc107;
+$orange: #ff9808;
 $red: #cc1417;
 $cyan: #00b8d8;
 $blue: #008cff;
-$duck-light: #247eb3;
+$duck-light: #116fa6;
 $duck: #1c4963;
 $navy: #021e34;
 
@@ -59,15 +65,23 @@ Mixin
 -------------------------------------- */
 /* Fonts */
 @mixin fluid-section-title {
-	font-size: calc(35px + (48 - 35) * ((100vw - 320px) / (1400 - 320)));
+	// font-size: calc(35px + (48 - 35) * ((100vw - 320px) / (1400 - 320)));
+	font-size: calc(30px + (40 - 30) * ((100vw - 320px) / (1400 - 320)));
 }
 
 @mixin fluid-title-h1 {
-	font-size: calc(28px + (38 - 28) * ((100vw - 320px) / (1400 - 320)));
+	// font-size: calc(28px + (38 - 28) * ((100vw - 320px) / (1400 - 320)));
+	font-size: calc(26px + (33 - 26) * ((100vw - 320px) / (1400 - 320)));
 }
 
 @mixin fluid-title-h2 {
-	font-size: calc(26px + (34 - 26) * ((100vw - 320px) / (1400 - 320)));
+	// font-size: calc(26px + (34 - 26) * ((100vw - 320px) / (1400 - 320)));
+	font-size: calc(24px + (30 - 24) * ((100vw - 320px) / (1400 - 320)));
+}
+
+@mixin fluid-title-h4 {
+	// font-size: calc(26px + (34 - 26) * ((100vw - 320px) / (1400 - 320)));
+	font-size: calc(21px + (24 - 21) * ((100vw - 320px) / (1400 - 320)));
 }
 
 /* Box shadow */
@@ -91,8 +105,8 @@ Mixin
 	width: 100%;
 	border: none;
 	border-radius: 0;
-	border-bottom: 1px solid $gray-anthracite;
-	margin: 25px 0;
+	border-bottom: 1px solid $gray-anthracite-light;
+	margin: 10px 0;
 
 	&:focus {
 		outline: none;
@@ -100,7 +114,7 @@ Mixin
 }
 
 @mixin input-label {
-	color: $anthracite-light;
+	color: $gray-anthracite-light;
 	font-size: 16px;
 	font-weight: normal;
 	position: absolute;
@@ -111,7 +125,7 @@ Mixin
 }
 
 @mixin shrink-label {
-	top: -10px;
+	top: -7px;
 	font-size: 12px;
 	color: $duck-light;
 }
@@ -119,6 +133,24 @@ Mixin
 @mixin grayed-message {
 	opacity: 0.5;
 	font-style: italic;
+}
+
+/* User dashboard */
+@mixin user--name {
+	font-size: 1.3rem;
+	font-weight: 600;
+	color: $duck;
+}
+
+@mixin gradient-user-photo {
+	background: linear-gradient(
+		55deg,
+		rgba(222, 159, 106, 1) 0%,
+		rgba(207, 188, 182, 0.8) 25%,
+		rgba(63, 123, 173, 0.8) 50%,
+		rgba(0, 74, 114, 0.8) 75%,
+		rgba(2, 53, 82, 0.8) 100%
+	);
 }
 
 /* -------------------------------------

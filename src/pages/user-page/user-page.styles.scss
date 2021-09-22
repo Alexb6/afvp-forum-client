@@ -1,0 +1,111 @@
+@import "../../sass/variables";
+
+.user-page {
+   margin-top: $bar-margin;
+
+   .user-page-titlebar {
+      @include gray-blue-shadow;
+      background-color: $duck-light;
+
+      .titlebar-container {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         margin-top: 1.352rem;
+         margin-bottom: 1.352rem;
+
+         .titlebar-title {
+            color: white;
+            @include fluid-section-title;
+            padding-top: $bar-title-padding;
+            padding-bottom: $bar-title-padding;
+            height: 100%;
+            margin: 0;
+         }
+
+         .hamburger-react {
+            display: none;
+         }
+      }
+   }
+
+   .user--space {
+      position: relative;
+
+      .user--display {
+         margin-bottom: 1rem;
+         width: 100%;
+         .welcome {
+            color: $gray-anthracite;
+            margin-top: 9px;
+         }
+      }
+   }
+}
+
+@media screen and (max-width: 576px) {
+   .user-page {
+      .user-page-titlebar .titlebar-container {
+         .hamburger-react {
+            display: block;
+         }
+      }
+
+      .user--space {
+         .user-aside-menu {
+            position: absolute;
+            transform: translateX(-110%);
+
+            &.user-aside-menu--enter {
+               transform: translateX(-110%);
+               opacity: 0;
+            }
+            &.user-aside-menu--enter-active {
+               transform: translateX(0%);
+               opacity: 1;
+               transition: all 0.5s ease;
+            }
+            &.user-aside-menu--enter-done {
+               transform: translateX(0%);
+               opacity: 1;
+            }
+            &.user-aside-menu--exit {
+               transform: translateX(0%);
+               opacity: 1;
+            }
+            &.user-aside-menu--exit-active {
+               transform: translateX(-110%);
+               opacity: 0;
+               transition: all 0.5s ease;
+            }
+            &.user-aside-menu--exit-done {
+               transform: translateX(-110%);
+               opacity: 0;
+            }
+         }
+
+         .user--display {
+            &.right-side-display--enter {
+               transform: translateX(0px);
+            }
+            &.right-side-display--enter-active {
+               transform: translateX(250px);
+               transition: all 0.5s ease;
+            }
+            &.right-side-display--enter-done {
+               transform: translateX(250px);
+            }
+            &.right-side-display--exit {
+               transform: translateX(250px);
+            }
+            &.right-side-display--exit-active {
+               transform: translateX(0px);
+               transition: all 0.5s ease;
+            }
+            &.right-side-display--exit-done {
+               transform: translateX(0px);
+            }
+         }
+      }
+   }
+}

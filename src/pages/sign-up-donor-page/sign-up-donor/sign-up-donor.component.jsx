@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import FormInput from '../../../components/form/form-input/form-input.component';
-import CustomButton from '../../../components/button/custom-button.component';
+import CustomButton from '../../../components/button/custom-button/custom-button.component';
 import FormOptionsSelect from '../../../components/form/form-select/form-select.component';
 import FormErrorMessage from '../../../components/form/form-error-message/form-error-message.component';
 import { checkEmail, checkPassword, checkPasswordConfirm, formIsValid } from '../../../utils/formContollers';
@@ -10,7 +10,6 @@ import ModalPopUp from '../../../components/modal/modal-popup/modal-popup.compon
 import ModalErrorPopUp from '../../../components/modal/modal-error-popup.component';
 import { scrollToTop } from '../../../utils/scrollToTop';
 import LoadingSpinner from '../../../components/loading-spinner/loading-spinner.component';
-// import { signUpUserService } from '../../../services/auth';
 import { userSignUpAsync } from '../../../redux/auth/auth-action-functions';
 
 import './sign-up-donor.styles.scss';
@@ -45,11 +44,10 @@ class SignUpDonor extends React.Component {
       e.preventDefault();
       if (formIsValid(this.state.formErrors)) {
          const { gender, family_name, first_name, email, password, pass_confirm, address, country, firm } = this.state;
-         const userData = { gender, family_name, first_name, email, password, pass_confirm, address, country, firm };
+         const userInfos = { gender, family_name, first_name, email, password, pass_confirm, address, country, firm };
          const { userSignUpAsync } = this.props;
          try {
-            // await signUpUserService('donors', userData);
-            await userSignUpAsync(['donors', userData]);
+            await userSignUpAsync(['donors', userInfos]);
             if (this.props.signUpError) throw new Error(this.props.signUpError);
 
             this.setState({ isLoading: false });
