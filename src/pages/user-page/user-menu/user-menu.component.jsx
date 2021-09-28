@@ -5,7 +5,7 @@ import CustomSmallButton from '../../../components/button/custom-small-button/cu
 
 import './user-menu.styles.scss';
 
-const UserMenu = ({ currentUser, handleLogout, handleProfile, mobileMenuClose }) => (
+const UserMenu = ({ currentUser, handleLogout, handleProfile, handlechangePassword, mobileMenuClose }) => (
    <div className="user-aside-menu col">
       {currentUser &&
          <div className="user--infos">
@@ -28,7 +28,7 @@ const UserMenu = ({ currentUser, handleLogout, handleProfile, mobileMenuClose })
          <li className="user--menu--item" onClick={() => { mobileMenuClose(); handleProfile() }}>
             <Link to='#'>Mon Profil</Link>
          </li>
-         <li className="user--menu--item" onClick={mobileMenuClose}>
+         <li className="user--menu--item" onClick={() => { mobileMenuClose(); handlechangePassword() }}>
             <Link to='#'>Changer de Mot de Passe</Link>
          </li>
          <li className="user--menu--item" onClick={mobileMenuClose}>

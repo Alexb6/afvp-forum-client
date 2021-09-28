@@ -22,11 +22,7 @@
    }
 
    .profile--group {
-      border: 1px solid $gray-blue-light;
-      max-width: 430px;
-      min-width: 290px;
-      padding: 1.2rem;
-      margin-bottom: 1rem;
+      @include user-profile-sections;
       position: relative;
 
       .section {

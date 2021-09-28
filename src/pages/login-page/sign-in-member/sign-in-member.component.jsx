@@ -74,7 +74,7 @@ class SignInMember extends React.Component {
 	};
 
 	render() {
-		const { formErrors, isLoading, error } = this.state;
+		const { formErrors, isLoading, error, email, password } = this.state;
 		return (
 			<div className="sign-in col-md-6 col-sm-12 mb-3">
 				<ModalErrorPopUp title="Erreur de connexion" errorMsg={error} closeModal={this.errorHandler} />
@@ -83,10 +83,10 @@ class SignInMember extends React.Component {
 				<p>Se connecter avec mon courriel et mot de passe.</p>
 				<p className="sign-in-create-account" >Je ne suis pas encore membre, je <a href="/sign-up-member">crée un compte</a> pour adhérer à l'association.</p>
 				<form onSubmit={this.handleSubmit} autoComplete="off">
-					<FormInput type="email" name="email" label="Courriel*" value={this.state.email} required onChange={this.handleChange} />
-					{formErrors.email.length > 0 && (<FormErrorMessage >{formErrors.email}</FormErrorMessage>)}
-					<FormInput type="password" name="password" label="Mot de passe*" value={this.state.password} required onChange={this.handleChange} />
-					{formErrors.password.length > 0 && (<FormErrorMessage >{formErrors.password}</FormErrorMessage>)}
+					<FormInput type="email" name="email" label="Courriel*" value={email} required onChange={this.handleChange} />
+					{formErrors.email.length > 0 && email.length > 3 && (<FormErrorMessage >{formErrors.email}</FormErrorMessage>)}
+					<FormInput type="password" name="password" label="Mot de passe*" value={password} required onChange={this.handleChange} />
+					{formErrors.password.length > 0 && password.length > 3 && (<FormErrorMessage >{formErrors.password}</FormErrorMessage>)}
 					<CustomButton type="submit" className="custom-button--positive--duck">Se connecter</CustomButton>
 				</form>
 			</div>

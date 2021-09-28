@@ -88,7 +88,7 @@ class SignUpMember extends React.Component {
 	errorHandler = () => this.setState({ error: '' });
 
 	render() {
-		const { isModalOpen, formErrors, isLoading, error } = this.state;
+		const { isModalOpen, formErrors, isLoading, error, gender, family_name, first_name, email, password, pass_confirm } = this.state;
 		return (
 			<div className="sign-up col-xl-7 col-lg-8 col-md-10 col-sm-10 col-12 mb-3">
 				{/* <CustomButton onClick={this.openModal} className="custom-button--positive--duck">Modal</CustomButton> */}
@@ -101,15 +101,15 @@ class SignUpMember extends React.Component {
 				<p>Je crée un compte pour commencer mon processus d'adhésion à l'association.</p>
 				<p className="sign-up-connect-account">Je suis déjà membre, <a href="/login">je me connecte</a> à mon compte.</p>
 				<form onSubmit={this.handleSubmit} autoComplete="off">
-					<FormOptionsSelect name="gender" label="Civilité*" value={this.state.gender} options={this.state.genderOptions} placeholder='' required onChange={this.handleChange} />
-					<FormInput type="text" name="family_name" label="Nom*" value={this.state.family_name} required onChange={this.handleChange} />
-					<FormInput type="text" name="first_name" label="Prénom*" value={this.state.first_name} required onChange={this.handleChange} />
-					<FormInput type="email" name="email" label="Courriel*" value={this.state.email} required onChange={this.handleChange} />
-					{formErrors.email.length > 0 && (<FormErrorMessage >{formErrors.email}</FormErrorMessage>)}
-					<FormInput type="password" name="password" label="Mot de passe*" value={this.state.password} required onChange={this.handleChange} />
-					{formErrors.password.length > 0 && (<FormErrorMessage >{formErrors.password}</FormErrorMessage>)}
-					<FormInput type="password" name="pass_confirm" label="Confirmer le mot de passe*" value={this.state.pass_confirm} required onChange={this.handleChange} onBlur={this.checkPasswordConfirm} />
-					{formErrors.pass_confirm.length > 0 && (<FormErrorMessage >{formErrors.pass_confirm}</FormErrorMessage>)}
+					<FormOptionsSelect name="gender" label="Civilité*" value={gender} options={this.state.genderOptions} placeholder='' required onChange={this.handleChange} />
+					<FormInput type="text" name="family_name" label="Nom*" value={family_name} required onChange={this.handleChange} />
+					<FormInput type="text" name="first_name" label="Prénom*" value={first_name} required onChange={this.handleChange} />
+					<FormInput type="email" name="email" label="Courriel*" value={email} required onChange={this.handleChange} />
+					{formErrors.email.length > 0 && email.length > 3 && (<FormErrorMessage >{formErrors.email}</FormErrorMessage>)}
+					<FormInput type="password" name="password" label="Mot de passe*" value={password} required onChange={this.handleChange} />
+					{formErrors.password.length > 0 && password.length > 3 && (<FormErrorMessage >{formErrors.password}</FormErrorMessage>)}
+					<FormInput type="password" name="pass_confirm" label="Confirmer le mot de passe*" value={pass_confirm} required onChange={this.handleChange} onBlur={this.checkPasswordConfirm} />
+					{formErrors.pass_confirm.length > 0 && pass_confirm.length > 3 && (<FormErrorMessage >{formErrors.pass_confirm}</FormErrorMessage>)}
 					<FormTextArea type="textarea" name="biography" label="Présentez vous en quelques mots...*" value={this.state.biography} rows="3" required onChange={this.handleChange} />
 					<CustomButton type="submit" className="custom-button--positive--duck">Créer</CustomButton>
 				</form>

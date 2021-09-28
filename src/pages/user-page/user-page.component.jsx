@@ -6,7 +6,8 @@ import { CSSTransition } from 'react-transition-group';
 import { userLogoutAsync, getFreshAccessTokenAsync } from '../../redux/auth/auth-action-functions';
 import { getUserProfileAsync } from '../../redux/user/user-action-functions';
 import UserMenu from './user-menu/user-menu.component';
-import UserProfile from './user-profile/user-profile.component'
+import UserProfile from './user-profile/user-profile.component';
+import UserPasswordChange from './user-password-change/user-password-change.component';
 
 import './user-page.styles.scss';
 
@@ -19,7 +20,8 @@ class UserPage extends React.Component {
       this.state = {
          userMenuHeight: null,
          userHambClick: false,
-         userProfileOpen: false
+         userProfileOpen: false,
+         changePasswordOpen: false
       }
    }
 
@@ -31,6 +33,7 @@ class UserPage extends React.Component {
    userHambugerClick = () => { this.setState({ userHambClick: !this.state.userHambClick }) };
    mobileMenuClose = () => { this.setState({ userHambClick: false }) };
    userProfileClose = () => { this.setState({ userProfileOpen: false }) }
+   changePasswordClose = () => { this.setState({ changePasswordOpen: false }) }
 
    handleLogout = () => {
       const { accessToken, userLogoutAsync } = this.props;
@@ -39,14 +42,19 @@ class UserPage extends React.Component {
 
    handleProfile = () => {
       const { accessToken, getUserProfileAsync } = this.props;
-      this.setState({ userProfileOpen: true })
+      this.setState({ userProfileOpen: true, changePasswordOpen: false })
       return getUserProfileAsync(accessToken);
+   };
+
+   handlechangePassword = () => {
+      this.setState({ changePasswordOpen: true, userProfileOpen: false });
    };
 
    renderMenuComponent = () => {
       const { userProfile } = this.props;
-      const { userProfileOpen } = this.state;
+      const { userProfileOpen, changePasswordOpen } = this.state;
       if (userProfile && userProfileOpen) { return <UserProfile userProfile={userProfile} userProfileClose={this.userProfileClose} /> }
+      if (changePasswordOpen) { return <UserPasswordChange changePasswordClose={this.changePasswordClose} /> }
       else {
          return <h1 className="welcome">Bienvenue dans votre espace personnel !</h1>
       }
@@ -78,7 +86,13 @@ class UserPage extends React.Component {
             <div className="user--space container">
                <div className="row">
                   <CSSTransition in={userHambClick} timeout={500} classNames="user-aside-menu-" >
-                     <UserMenu currentUser={currentUser} handleLogout={this.handleLogout} handleProfile={this.handleProfile} mobileMenuClose={this.mobileMenuClose} />
+                     <UserMenu
+                        currentUser={currentUser}
+                        handleLogout={this.handleLogout}
+                        handleProfile={this.handleProfile}
+                        handlechangePassword={this.handlechangePassword}
+                        mobileMenuClose={this.mobileMenuClose}
+                     />
                   </CSSTransition>
                   <CSSTransition in={userHambClick} timeout={500} classNames="right-side-display-" >
                      <div className="user--display col" style={{ minHeight: userMenuHeight + menuAbsoluteOffset }}>

@@ -88,7 +88,7 @@ class SignUpDonor extends React.Component {
    errorHandler = () => this.setState({ error: '' });
 
    render() {
-      const { isModalOpen, formErrors, isLoading, error } = this.state;
+      const { isModalOpen, formErrors, isLoading, error, gender, family_name, first_name, email, password, pass_confirm, address, country, firm } = this.state;
       return (
          <div className="sign-up col-xl-7 col-lg-8 col-md-10 col-sm-10 col-12 mb-3">
             <ModalPopUp open={isModalOpen} closeModal={this.closeModal} headerClass='valid' title="Compte crée" footerClose>
@@ -100,18 +100,18 @@ class SignUpDonor extends React.Component {
             <p>Veuillez créer un compte pour faire un don à l'association. Nous aurons besoin de ces informations pour vous remettre un justificatif fiscal.</p>
             <p className="sign-up-connect-account">Je suis déjà donateur, <a href="/login">je me connecte</a> à mon compte.</p>
             <form onSubmit={this.handleSubmit} autoComplete="off">
-               <FormOptionsSelect name="gender" label="Civilité*" value={this.state.gender} options={this.state.genderOptions} placeholder='' required onChange={this.handleChange} />
-               <FormInput type="text" name="family_name" label="Nom*" value={this.state.family_name} required onChange={this.handleChange} />
-               <FormInput type="text" name="first_name" label="Prénom*" value={this.state.first_name} required onChange={this.handleChange} />
-               <FormInput type="email" name="email" label="Courriel*" value={this.state.email} required onChange={this.handleChange} />
-               {formErrors.email.length > 0 && (<FormErrorMessage >{formErrors.email}</FormErrorMessage>)}
-               <FormInput type="password" name="password" label="Mot de passe*" value={this.state.password} required onChange={this.handleChange} />
-               {formErrors.password.length > 0 && (<FormErrorMessage >{formErrors.password}</FormErrorMessage>)}
-               <FormInput type="password" name="pass_confirm" label="Confirmer le mot de passe*" value={this.state.pass_confirm} required onChange={this.handleChange} />
-               {formErrors.pass_confirm.length > 0 && (<FormErrorMessage >{formErrors.pass_confirm}</FormErrorMessage>)}
-               <FormInput type="text" name="address" label="Adresse*" value={this.state.address} required onChange={this.handleChange} />
-               <FormInput type="text" name="country" label="Pays*" value={this.state.country} required onChange={this.handleChange} />
-               <FormInput type="text" name="firm" label="Entreprise" value={this.state.firm} onChange={this.handleChange} />
+               <FormOptionsSelect name="gender" label="Civilité*" value={gender} options={this.state.genderOptions} placeholder='' required onChange={this.handleChange} />
+               <FormInput type="text" name="family_name" label="Nom*" value={family_name} required onChange={this.handleChange} />
+               <FormInput type="text" name="first_name" label="Prénom*" value={first_name} required onChange={this.handleChange} />
+               <FormInput type="email" name="email" label="Courriel*" value={email} required onChange={this.handleChange} />
+               {formErrors.email.length > 0 && email.length > 3 && (<FormErrorMessage >{formErrors.email}</FormErrorMessage>)}
+               <FormInput type="password" name="password" label="Mot de passe*" value={password} required onChange={this.handleChange} />
+               {formErrors.password.length > 0 && password.length > 3 && (<FormErrorMessage >{formErrors.password}</FormErrorMessage>)}
+               <FormInput type="password" name="pass_confirm" label="Confirmer le mot de passe*" value={pass_confirm} required onChange={this.handleChange} />
+               {formErrors.pass_confirm.length > 0 && pass_confirm.length > 3 && (<FormErrorMessage >{formErrors.pass_confirm}</FormErrorMessage>)}
+               <FormInput type="text" name="address" label="Adresse*" value={address} required onChange={this.handleChange} />
+               <FormInput type="text" name="country" label="Pays*" value={country} required onChange={this.handleChange} />
+               <FormInput type="text" name="firm" label="Entreprise" value={firm} onChange={this.handleChange} />
                <CustomButton type="submit" className="custom-button--positive--duck">Créer</CustomButton>
             </form>
          </div>

@@ -43,3 +43,17 @@ export const refreshTokenAbsent = () => ({
 export const refreshTokenEnd = () => ({
    type: AuthActionTypes.REFRESH_TOKEN_END
 });
+
+export const updatePasswordStart = () => ({
+   type: AuthActionTypes.UPDATE_PASSWORD_START
+});
+
+export const updatePasswordFailure = (errorMessage = 'Un problème est survenu lors de l\'enregistrement du mot de passe. Veuillez réessayer plus tard.') => ({
+   type: AuthActionTypes.UPDATE_PASSWORD_FAILURE,
+   payload: { errorMessage }
+});
+
+export const updatePasswordSuccess = token => ({
+   type: AuthActionTypes.UPDATE_PASSWORD_SUCCESS,
+   payload: token
+});

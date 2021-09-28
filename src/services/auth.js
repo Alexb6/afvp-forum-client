@@ -70,9 +70,9 @@ export const logoutUserService = async (accessToken) => {
 
 export const refreshAccessTokenService = async () => {
    try {
+      const userResource = getCookieValue('userResource');
       const xsrfToken = getCookieValue('xsrfToken');
-      if (xsrfToken) {
-         const userResource = getCookieValue('userResource');
+      if (xsrfToken && userResource) {   
          setXsrfHeader(xsrfToken);
          const response = await fetch(`${API_URL}/${userResource}/refresh-token`, {
             method: 'POST',
@@ -82,6 +82,35 @@ export const refreshAccessTokenService = async () => {
          });
          const parseResponse = await response.json();
          if (!response.ok) {
+            throw new Error(parseResponse.message)
+         }
+         return parseResponse;
+      }
+      return;
+   } catch (err) {
+      return {
+         error: true,
+         errorMessage: err.message
+      }
+   }
+}
+
+export const updateMyPasswordSercice = async (accessToken, userInfos) => {
+   try {
+      const userResource = getCookieValue('userResource');
+      const xsrfToken = getCookieValue('xsrfToken');
+      if(xsrfToken && userResource) {   
+         setXsrfHeader(xsrfToken);
+         setTokenAuthHeader(accessToken);
+         const response = await fetch(`${API_URL}/${userResource}/update-my-password`, {
+            method: 'PATCH',
+            credentials: 'include',
+            mode: 'cors',
+            headers,
+            body: JSON.stringify(userInfos)
+         });
+         const parseResponse = await response.json();
+         if(!response.ok) {
             throw new Error(parseResponse.message)
          }
          return parseResponse;

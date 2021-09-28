@@ -6,7 +6,7 @@ import 'react-image-crop/dist/ReactCrop.css';
 import './profile-image.styles.scss';
 
 import PencilEditIcon from './../../../../components/button/pencil-edit-icon/pencil-edit-icon.component';
-import FormButtons from './../form-buttons/form-buttons.component';
+import FormCancelValidButtons from './../../../../components/form/form-cancel-valid-buttons/form-cancel-valid-buttons.component';
 import CustomSmallButton from './../../../../components/button/custom-small-button/custom-small-button.component';
 import { updateUserProfileImageAsync } from './../../../../redux/user/user-action-functions';
 import ImageCropModalPopUp from './image-crop-modal/image-crop-modal.component';
@@ -190,7 +190,7 @@ class ProfileImage extends React.Component {
                         handleImageCropValid={this.handleImageCropValid}
                      />
                   }
-                  <FormButtons formClose={this.handlephotoFormClose} formSubmit={this.handlephotoFormSubmit} />
+                  <FormCancelValidButtons closeForm={this.handlephotoFormClose} closeText="Annuler" submitText="Modifier" submitForm={this.handlephotoFormSubmit} />
                </form>
                : <>
                   {photo_url

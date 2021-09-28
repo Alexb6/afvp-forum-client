@@ -7,7 +7,8 @@ const INITIAL_STATE = {
    isAuthenticated: false,
    refreshTokenLoading: false,
    loginError: null,
-   signUpError: null
+   signUpError: null,
+   updateMyPasswordError: null
 }
 
 const authReducer = (state = INITIAL_STATE, action) => {
@@ -56,6 +57,23 @@ const authReducer = (state = INITIAL_STATE, action) => {
       case AuthActionTypes.REFRESH_TOKEN_END:
          return {
             ...state,
+            refreshTokenLoading: false
+         }
+      case AuthActionTypes.UPDATE_PASSWORD_START:
+         return {
+            ...state
+         }
+      case AuthActionTypes.UPDATE_PASSWORD_FAILURE:
+         return {
+            ...state,
+            updateMyPasswordError: action.payload.errorMessage
+         }
+      case AuthActionTypes.UPDATE_PASSWORD_SUCCESS:
+         return {
+            ...state,
+            accessToken: action.payload.accessToken,
+            accessTokenRefreshInterval: action.payload.accessTokenRefreshInterval,
+            isAuthenticated: true,
             refreshTokenLoading: false
          }
       default:

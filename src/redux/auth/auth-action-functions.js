@@ -9,9 +9,12 @@ import {
    refreshTokenStart,
    refreshTokenAbsent,
    refreshTokenEnd,
+   updatePasswordStart,
+   updatePasswordFailure,
+   updatePasswordSuccess,
 } from './auth-action';
 import { setCurrentUser, clearCurrentUser } from '../user/user-action';
-import { signUpUserService, loginUserService, logoutUserService, refreshAccessTokenService } from '../../services/auth';
+import { signUpUserService, loginUserService, logoutUserService, refreshAccessTokenService, updateMyPasswordSercice } from '../../services/auth';
 
 const deleteAllCookies = () => {
    const cookies = document.cookie.split(";");
@@ -95,4 +98,23 @@ export const allTabsLogout = () => dispatch => {
    dispatch(userLogout());
    dispatch(clearCurrentUser());
    deleteAllCookies();
+}
+
+export const updateMyPasswordAsync = (userData) => async dispatch => {
+   dispatch (updatePasswordStart());
+   // userData is like so: [accessToken = String, userInfos = Object]
+   const result = await updateMyPasswordSercice(...userData);
+
+   if(!result) {
+      dispatch(updatePasswordFailure());
+      return;
+   } else {
+      if(result.error) {
+         dispatch(updatePasswordFailure(result.errorMessage));
+         return;
+      } else {
+         dispatch(updatePasswordSuccess(result.data.token));
+         dispatch(setCurrentUser(result.data.user));
+      }
+   }
 }

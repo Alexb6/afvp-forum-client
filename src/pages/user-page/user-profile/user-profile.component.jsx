@@ -9,7 +9,8 @@ import ReturnIcon from './../../../components/button/return-icon/return-icon.com
 import { updateUserProfileAsync } from './../../../redux/user/user-action-functions';
 import FormInput from './../../../components/form/form-input/form-input.component';
 import FormTextArea from './../../../components/form/form-textarea/form-text-area.component';
-import FormButtons from './form-buttons/form-buttons.component';
+// import FormButtons from './form-buttons/form-buttons.component';
+import FormCancelValidButtons from './../../../components/form/form-cancel-valid-buttons/form-cancel-valid-buttons.component';
 import ProfileImage from './profile-image/profile-image.component';
 
 const INITIAL_STATE = {
@@ -180,7 +181,8 @@ class UserProfile extends React.Component {
                   ? <form autoComplete="off">
                      <FormInput type="text" name="familyNameState" label="Nom*" value={familyNameState} required onChange={this.handleFormChange} />
                      <FormInput type="text" name="firstNameState" label="Prénom*" value={firstNameState} required onChange={this.handleFormChange} />
-                     <FormButtons formClose={this.handleNameFormClose} formSubmit={this.handleNameFormSubmit} />
+                     {/* <FormButtons formClose={this.handleNameFormClose} formSubmit={this.handleNameFormSubmit} /> */}
+                     <FormCancelValidButtons closeForm={this.handleNameFormClose} closeText="Annuler" submitText="Modifier" submitForm={this.handleNameFormSubmit} />
                   </form>
                   : <>
                      <span>{first_name} {family_name}</span>
@@ -196,7 +198,8 @@ class UserProfile extends React.Component {
                ? <form autoComplete="off">
                   <FormInput type="text" name="specialityState" label="Spécialité" value={specialityState} required onChange={this.handleFormChange} />
                   <FormInput type="text" name="titleState" label="Titre" value={titleState} required onChange={this.handleFormChange} />
-                  <FormButtons formClose={this.handleSpecialityFormClose} formSubmit={this.handleSpecialityFormSubmit} />
+                  {/* <FormButtons formClose={this.handleSpecialityFormClose} formSubmit={this.handleSpecialityFormSubmit} /> */}
+                  <FormCancelValidButtons closeForm={this.handleSpecialityFormClose} closeText="Annuler" submitText="Modifier" submitForm={this.handleSpecialityFormSubmit} />
                </form>
                : <>
                   <PencilEditIcon onClick={this.handleSpecialityFormOpen} />
@@ -221,7 +224,8 @@ class UserProfile extends React.Component {
                   <FormInput type="text" name="address02State" label="Adresse 02" value={address02State} required onChange={this.handleFormChange} />
                   <FormInput type="text" name="address03State" label="Adresse 03" value={address03State} required onChange={this.handleFormChange} />
                   <FormInput type="text" name="countryState" label="Pays" value={countryState} required onChange={this.handleFormChange} />
-                  <FormButtons formClose={this.handleEmailFormClose} formSubmit={this.handleEmailFormSubmit} />
+                  {/* <FormButtons formClose={this.handleEmailFormClose} formSubmit={this.handleEmailFormSubmit} /> */}
+                  <FormCancelValidButtons closeForm={this.handleEmailFormClose} closeText="Annuler" submitText="Modifier" submitForm={this.handleEmailFormSubmit} />
                </form>
                : <>
                   <PencilEditIcon onClick={this.handleEmailFormOpen} />
@@ -249,7 +253,8 @@ class UserProfile extends React.Component {
                ? <form autoComplete="off">
                   <FormTextArea type="text" name="biographyState" label="Biographie" value={biographyState} required onChange={this.handleFormChange} />
                   <FormTextArea type="text" name="hobbyState" label="Hobby" value={hobbyState} required onChange={this.handleFormChange} />
-                  <FormButtons formClose={this.handleBioFormClose} formSubmit={this.handleBioFormSubmit} />
+                  {/* <FormButtons formClose={this.handleBioFormClose} formSubmit={this.handleBioFormSubmit} /> */}
+                  <FormCancelValidButtons closeForm={this.handleBioFormClose} closeText="Annuler" submitText="Modifier" submitForm={this.handleBioFormSubmit} />
                </form>
                : <>
                   <PencilEditIcon onClick={this.handleBioFormOpen} />
