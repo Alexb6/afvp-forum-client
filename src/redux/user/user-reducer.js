@@ -4,6 +4,8 @@ const INITITIAL_STATE = {
    currentUser: null,
    userProfile: null,
    userProfileError: null,
+   emailVerified: false,
+   emailVerifiedError: null
 }
 
 const userReducer = (state = INITITIAL_STATE, action) => {
@@ -55,6 +57,20 @@ const userReducer = (state = INITITIAL_STATE, action) => {
          return {
             ...state,
             currentUser: { id, email, family_name, first_name, photo_url }
+         }
+      case UserActionTypes.VERIFY_EMAIL_START:
+         return {
+            ...state
+         }
+      case UserActionTypes.VERIFY_EMAIL_SUCCESS:
+         return {
+            ...state,
+            emailVerified: action.payload
+         }
+      case UserActionTypes.VERIFY_EMAIL_FAILURE:
+         return {
+            ...state,
+            emailVerifiedError: action.payload.errorMessage
          }
       default:
          return state;

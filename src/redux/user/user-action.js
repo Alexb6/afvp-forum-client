@@ -46,3 +46,17 @@ export const updateCurrentUserFromProfile = user => ({
    type: UserActionTypes.UPDATE_CURRENT_USER_FROM_PROFILE,
    payload: user
 });
+
+export const verifyEmailStart = () => ({
+   type: UserActionTypes.VERIFY_EMAIL_START
+});
+
+export const verifyEmailSuccess = user => ({
+   type: UserActionTypes.VERIFY_EMAIL_SUCCESS,
+   payload: user.email_verified
+});
+
+export const verifyEmailFailure = (errorMessage = 'Un problème est survenu lors de la vérification du courriel. Veuillez réessayer plus tard.') => ({
+   type: UserActionTypes.VERIFY_EMAIL_FAILURE,
+   payload: { errorMessage }
+});

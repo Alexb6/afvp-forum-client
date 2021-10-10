@@ -88,3 +88,25 @@ export const updateUserProfileImageService = async (accessToken, imageObj) => {
    }
 }
 
+export const verifyEmailService = async (token) => {   
+   let userResource;
+   if(token.length === 96) userResource = 'members';
+   if(token.length === 64) userResource = 'donors';
+   try {
+      const response = await fetch(`${API_URL}/${userResource}/verify-email/${token}`, {
+         method: 'PATCH',
+         credentials: 'include',
+         mode: 'cors',
+      });
+      const parseResponse = await response.json();
+      if (!response.ok) {
+         throw new Error(parseResponse.message)
+      }
+      return parseResponse;
+   } catch (err) {
+      return {
+         error: true,
+         errorMessage: err.message
+      }
+   }
+}

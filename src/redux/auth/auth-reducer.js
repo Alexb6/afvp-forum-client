@@ -27,6 +27,7 @@ const authReducer = (state = INITIAL_STATE, action) => {
             ...INITIAL_STATE
          }
       case AuthActionTypes.USER_LOGIN_START:
+         if (localStorage.userLoggedOut) delete localStorage.userLoggedOut;
          return {
             ...state
          }
@@ -36,7 +37,7 @@ const authReducer = (state = INITIAL_STATE, action) => {
             loginError: action.payload.errorMessage
          }
       case AuthActionTypes.USER_LOGIN_SUCCESS:
-         if (localStorage.userLoggedOut) delete localStorage.userLoggedOut;
+         // if (localStorage.userLoggedOut) delete localStorage.userLoggedOut;
          return {
             ...state,
             accessToken: action.payload.accessToken,

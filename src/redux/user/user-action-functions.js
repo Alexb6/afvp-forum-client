@@ -6,9 +6,17 @@ import {
    updateUserProfileSuccess,
    updateUserProfileImageSuccess,
    updateUserProfileFailure,
-   updateCurrentUserFromProfile
+   updateCurrentUserFromProfile,
+   verifyEmailStart,
+   verifyEmailSuccess,
+   verifyEmailFailure
 } from './user-action';
-import { getUserProfileService, updateUserProfileService, updateUserProfileImageService } from './../../services/user';
+import {
+   getUserProfileService,
+   updateUserProfileService,
+   updateUserProfileImageService,
+   verifyEmailService
+} from './../../services/user';
 
 export const getUserProfileAsync = (accessToken) => async dispatch => {
    dispatch(getUserProfileStart());
@@ -62,6 +70,23 @@ export const updateUserProfileImageAsync = (userData) => async dispatch => {
       } else {
          dispatch(updateUserProfileImageSuccess(result.data.user));
          dispatch(updateCurrentUserFromProfile(result.data.user))
+      }
+   }
+}
+
+export const verifyEmailAsync = (token) => async dispatch => {
+   dispatch(verifyEmailStart());
+   const result = await verifyEmailService(token);
+
+   if (!result) {
+      dispatch(verifyEmailFailure());
+      return;
+   } else {
+      if(result.error) {
+         dispatch(verifyEmailFailure(result.errorMessage));
+         return;
+      } else {
+         dispatch(verifyEmailSuccess(result.data.user))
       }
    }
 }

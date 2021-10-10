@@ -1,5 +1,5 @@
 import API_URL from '../assets-src/data/API-Url';
-import {headers ,getCookieValue, setTokenAuthHeader, setXsrfHeader} from './_service-functions';
+import { headers, getCookieValue, setTokenAuthHeader, setXsrfHeader } from './_service-functions';
 
 export const signUpUserService = async (userResource, userInfos) => {
    try {
@@ -72,7 +72,7 @@ export const refreshAccessTokenService = async () => {
    try {
       const userResource = getCookieValue('userResource');
       const xsrfToken = getCookieValue('xsrfToken');
-      if (xsrfToken && userResource) {   
+      if (xsrfToken && userResource) {
          setXsrfHeader(xsrfToken);
          const response = await fetch(`${API_URL}/${userResource}/refresh-token`, {
             method: 'POST',
@@ -99,7 +99,7 @@ export const updateMyPasswordSercice = async (accessToken, userInfos) => {
    try {
       const userResource = getCookieValue('userResource');
       const xsrfToken = getCookieValue('xsrfToken');
-      if(xsrfToken && userResource) {   
+      if (xsrfToken && userResource) {
          setXsrfHeader(xsrfToken);
          setTokenAuthHeader(accessToken);
          const response = await fetch(`${API_URL}/${userResource}/update-my-password`, {
@@ -110,7 +110,7 @@ export const updateMyPasswordSercice = async (accessToken, userInfos) => {
             body: JSON.stringify(userInfos)
          });
          const parseResponse = await response.json();
-         if(!response.ok) {
+         if (!response.ok) {
             throw new Error(parseResponse.message)
          }
          return parseResponse;
