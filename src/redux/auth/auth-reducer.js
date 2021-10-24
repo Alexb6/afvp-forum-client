@@ -8,7 +8,9 @@ const INITIAL_STATE = {
    refreshTokenLoading: false,
    loginError: null,
    signUpError: null,
-   updateMyPasswordError: null
+   updateMyPasswordError: null,
+   forgotPasswordError: null,
+   resetPasswordError: null,
 }
 
 const authReducer = (state = INITIAL_STATE, action) => {
@@ -37,7 +39,6 @@ const authReducer = (state = INITIAL_STATE, action) => {
             loginError: action.payload.errorMessage
          }
       case AuthActionTypes.USER_LOGIN_SUCCESS:
-         // if (localStorage.userLoggedOut) delete localStorage.userLoggedOut;
          return {
             ...state,
             accessToken: action.payload.accessToken,
@@ -76,6 +77,32 @@ const authReducer = (state = INITIAL_STATE, action) => {
             accessTokenRefreshInterval: action.payload.accessTokenRefreshInterval,
             isAuthenticated: true,
             refreshTokenLoading: false
+         }
+      case AuthActionTypes.FORGOT_PASSWORD_START:
+         return {
+            ...state
+         }
+      case AuthActionTypes.FORGOT_PASSWORD_FAILURE:
+         return {
+            ...state,
+            forgotPasswordError: action.payload.errorMessage
+         }
+      case AuthActionTypes.FORGOT_PASSWORD_SUCCESS:
+         return {
+            ...state,
+         }
+      case AuthActionTypes.RESET_PASSWORD_START:
+         return {
+            ...state
+         }
+      case AuthActionTypes.RESET_PASSWORD_FAILURE:
+         return {
+            ...state,
+            resetPasswordError: action.payload.errorMessage
+         }
+      case AuthActionTypes.RESET_PASSWORD_SUCCESS:
+         return {
+            ...state,
          }
       default:
          return state;

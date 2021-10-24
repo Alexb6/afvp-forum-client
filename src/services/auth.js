@@ -1,5 +1,5 @@
 import API_URL from '../assets-src/data/API-Url';
-import { headers, getCookieValue, setTokenAuthHeader, setXsrfHeader } from './_service-functions';
+import { headers, getCookieValue, setTokenAuthHeader, setXsrfHeader, findUserResource } from './_service-functions';
 
 export const signUpUserService = async (userResource, userInfos) => {
    try {
@@ -116,6 +116,51 @@ export const updateMyPasswordSercice = async (accessToken, userInfos) => {
          return parseResponse;
       }
       return;
+   } catch (err) {
+      return {
+         error: true,
+         errorMessage: err.message
+      }
+   }
+}
+
+export const forgotPasswordSercice = async (userResource, email) => {
+   try {
+      const response = await fetch(`${API_URL}/${userResource}/forgot-password`, {
+         method: 'POST',
+         credentials: 'include',
+         mode: 'cors',
+         headers,
+         body: JSON.stringify({ email })
+      });
+      const parseResponse = await response.json();
+      if (!response.ok) {
+         throw new Error(parseResponse.message)
+      }
+      return parseResponse;
+   } catch (err) {
+      return {
+         error: true,
+         errorMessage: err.message
+      }
+   }
+}
+
+export const resetPasswordService = async (token, password) => {
+   const userResource = findUserResource(token);
+   try {
+      const response = await fetch(`${API_URL}/${userResource}/reset-password/${token}`, {
+         method: 'PATCH',
+         credentials: 'include',
+         mode: 'cors',
+         headers,
+         body: JSON.stringify({ password })
+      });
+      const parseResponse = await response.json();
+      if (!response.ok) {
+         throw new Error(parseResponse.message)
+      }
+      return parseResponse;
    } catch (err) {
       return {
          error: true,

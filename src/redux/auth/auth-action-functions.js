@@ -12,6 +12,12 @@ import {
    updatePasswordStart,
    updatePasswordFailure,
    updatePasswordSuccess,
+   forgotPasswordStart,
+   forgotPasswordFailure,
+   forgotPasswordSuccess,
+   resetPasswordStart,
+   resetPasswordFailure,
+   resetPasswordSuccess,
 } from './auth-action';
 import { setCurrentUser, clearCurrentUser } from '../user/user-action';
 import {
@@ -19,7 +25,9 @@ import {
    loginUserService,
    logoutUserService,
    refreshAccessTokenService,
-   updateMyPasswordSercice
+   updateMyPasswordSercice,
+   forgotPasswordSercice,
+   resetPasswordService
 } from '../../services/auth';
 
 const deleteAllCookies = () => {
@@ -121,6 +129,42 @@ export const updateMyPasswordAsync = (userData) => async dispatch => {
       } else {
          dispatch(updatePasswordSuccess(result.data.token));
          dispatch(setCurrentUser(result.data.user));
+      }
+   }
+}
+
+export const forgotPasswordAsync = (userData) => async dispatch => {
+   dispatch(forgotPasswordStart());
+   // userData is like so: [userResource = String, email = state]
+   const result = await forgotPasswordSercice(...userData);
+
+   if (!result) {
+      dispatch(updatePasswordFailure());
+      return;
+   } else {
+      if (result.error) {
+         dispatch(forgotPasswordFailure(result.errorMessage));
+         return;
+      } else {
+         dispatch(forgotPasswordSuccess(result.message));
+      }
+   }
+}
+
+export const resetPasswordAsync = (userData) => async dispatch => {
+   dispatch(resetPasswordStart());
+   // userData is like so: [token = String, password = state]
+   const result = await resetPasswordService(...userData);
+
+   if (!result) {
+      dispatch(updatePasswordFailure());
+      return;
+   } else {
+      if (result.error) {
+         dispatch(resetPasswordFailure(result.errorMessage));
+         return;
+      } else {
+         dispatch(resetPasswordSuccess(result.message));
       }
    }
 }

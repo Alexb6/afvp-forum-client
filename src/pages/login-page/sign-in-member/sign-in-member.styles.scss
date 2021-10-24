@@ -10,7 +10,24 @@
 		@include grayed-message;
 	}
 
-	form button {
-		margin-bottom: 25px;
+	form {
+		button {
+			margin-bottom: 20px;
+		}
+		.forgot-password {
+			opacity: 0.5;
+			font-style: italic;
+
+			a {
+				@include grayed-message;
+				opacity: 1;
+				color: $blue;
+				margin-bottom: 30px;
+
+				&:hover {
+					color: $cyan;
+				}
+			}
+		}
 	}
 }

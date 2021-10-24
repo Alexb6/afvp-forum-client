@@ -22,3 +22,10 @@ export const setXsrfHeader = xsrfToken => {
       headers.set('xsrfToken', xsrfToken)
    }
 }
+
+export const findUserResource = (token) => {
+   let userResource;
+   if(token.length === 96) userResource = 'members';
+   if(token.length === 64) userResource = 'donors';
+   return userResource;
+}

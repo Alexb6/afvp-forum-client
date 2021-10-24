@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import CustomButton from './../../components/button/custom-button/custom-button.component';
 import { verifyEmailAsync } from './../../redux/user/user-action-functions';
 import LoadingSpinner from './../../components/loading-spinner/loading-spinner.component';
+import { scrollToTop } from './../../utils/scrollToTop';
 import ModalErrorPopUp from './../../components/modal/modal-error-popup.component';
 import ModalPopUp from './../../components/modal/modal-popup/modal-popup.component';
 
@@ -27,7 +28,9 @@ class EmailVerification extends React.Component {
          await this.props.verifyEmailAsync(token);
          if (this.props.emailVerifiedError) throw new Error(this.props.emailVerifiedError);
          this.setState({ isLoading: false });
+         scrollToTop();
       } catch (err) {
+         scrollToTop();
          this.setState({ isLoading: false, error: this.props.emailVerifiedError });
       }
    }

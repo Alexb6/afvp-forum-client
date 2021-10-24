@@ -1,5 +1,5 @@
 import API_URL from '../assets-src/data/API-Url';
-import { headers, getCookieValue, setTokenAuthHeader, setXsrfHeader } from './_service-functions';
+import { headers, getCookieValue, setTokenAuthHeader, setXsrfHeader, findUserResource } from './_service-functions';
 
 export const getUserProfileService = async (accessToken) => {
    try {
@@ -88,10 +88,8 @@ export const updateUserProfileImageService = async (accessToken, imageObj) => {
    }
 }
 
-export const verifyEmailService = async (token) => {   
-   let userResource;
-   if(token.length === 96) userResource = 'members';
-   if(token.length === 64) userResource = 'donors';
+export const verifyEmailService = async (token) => {
+   const userResource = findUserResource(token);
    try {
       const response = await fetch(`${API_URL}/${userResource}/verify-email/${token}`, {
          method: 'PATCH',

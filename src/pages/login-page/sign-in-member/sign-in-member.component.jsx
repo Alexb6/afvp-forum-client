@@ -36,7 +36,6 @@ class SignInMember extends React.Component {
 			const { userLoginAsync } = this.props;
 			try {
 				this.setState({ isLoading: true });
-
 				await userLoginAsync(['members', email, password]);
 				if (this.props.loginError) throw new Error(this.props.loginError);
 
@@ -88,6 +87,9 @@ class SignInMember extends React.Component {
 					<FormInput type="password" name="password" label="Mot de passe*" value={password} required onChange={this.handleChange} />
 					{formErrors.password.length > 0 && password.length > 3 && (<FormErrorMessage >{formErrors.password}</FormErrorMessage>)}
 					<CustomButton type="submit" className="custom-button--positive--duck">Se connecter</CustomButton>
+					<p className="forgot-password">
+						J'ai oublié mon <a href='/forgot-password' >mot de passe</a>
+					</p>
 				</form>
 			</div>
 		)

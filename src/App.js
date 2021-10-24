@@ -13,6 +13,8 @@ import SingnUpDonorPage from './pages/sign-up-donor-page/sign-up-donor-page.comp
 import UserPage from './pages/user-page/user-page.component';
 import LoadingSpinner from './components/loading-spinner/loading-spinner.component';
 import EmailVerification from './pages/email-verification/email-verification.component';
+import ForgotPasswordPage from './pages/forgot-password-page/forgot-password.component';
+import ResetPasswordPage from './pages/reset-password-page/reset-password-page.component';
 
 import './App.scss';
 
@@ -47,6 +49,8 @@ class App extends React.Component {
 					<Route path='/sign-up-member' component={SingnUpMemberPage} />
 					<Route path='/sign-up-donor' component={SingnUpDonorPage} />
 					<Route path='/verify-email/:token' component={EmailVerification} />
+					<Route path='/forgot-password' component={ForgotPasswordPage} />
+					<Route path='/reset-password/:token' component={ResetPasswordPage} />
 				</Switch>
 				<Footer />
 			</div>
