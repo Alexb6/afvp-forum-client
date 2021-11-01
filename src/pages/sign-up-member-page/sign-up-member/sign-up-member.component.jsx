@@ -9,6 +9,7 @@ import FormErrorMessage from '../../../components/form/form-error-message/form-e
 import { checkEmail, checkPassword, checkPasswordConfirm, formIsValid } from '../../../utils/formContollers';
 import ModalPopUp from '../../../components/modal/modal-popup/modal-popup.component';
 import ModalErrorPopUp from '../../../components/modal/modal-error-popup.component';
+import ModalWarningPopUp from './../../../components/modal/modal-warning-popup.component';
 import { scrollToTop } from '../../../utils/scrollToTop';
 import LoadingSpinner from '../../../components/loading-spinner/loading-spinner.component';
 import { userSignUpAsync } from '../../../redux/auth/auth-action-functions';
@@ -35,7 +36,8 @@ class SignUpMember extends React.Component {
 			},
 			isModalOpen: false,
 			isLoading: false,
-			error: ''
+			error: '',
+			warning: ''
 		}
 	}
 
@@ -56,7 +58,11 @@ class SignUpMember extends React.Component {
 				this.setState({ gender: '', family_name: '', first_name: '', email: '', password: '', pass_confirm: '', biography: '' });
 			} catch (err) {
 				scrollToTop();
-				this.setState({ isLoading: false, error: this.props.signUpError || 'Une erreur est survenue, votre demande n\'a pas été envoyée. Veuillez essayer plus tard.' });
+				if (this.props.signUpError.startsWith('Un utilisateur avec ce courriel existe déjà')) {
+					this.setState({ isLoading: false, warning: this.props.signUpError || 'Une erreur est survenue, votre demande n\'a pas été envoyée. Veuillez essayer plus tard.' });
+				} else {
+					this.setState({ isLoading: false, error: this.props.signUpError || 'Une erreur est survenue, votre demande n\'a pas été envoyée. Veuillez essayer plus tard.' });
+				}
 			}
 		}
 	}
@@ -85,10 +91,10 @@ class SignUpMember extends React.Component {
 
 	closeModal = () => this.setState({ isModalOpen: false });
 	openModal = () => this.setState({ isModalOpen: true });
-	errorHandler = () => this.setState({ error: '' });
+	errorHandler = () => this.setState({ error: '', warning: '' });
 
 	render() {
-		const { isModalOpen, formErrors, isLoading, error, gender, family_name, first_name, email, password, pass_confirm } = this.state;
+		const { isModalOpen, formErrors, isLoading, error, warning, gender, family_name, first_name, email, password, pass_confirm } = this.state;
 		return (
 			<div className="sign-up col-xl-7 col-lg-8 col-md-10 col-sm-10 col-12 mb-3">
 				{/* <CustomButton onClick={this.openModal} className="custom-button--positive--duck">Modal</CustomButton> */}
@@ -96,6 +102,7 @@ class SignUpMember extends React.Component {
 					Nous vous remercions pour votre demande d'adhésion. Vous recevrez une réponse par courriel !
 				</ModalPopUp>
 				<ModalErrorPopUp title="Une erreur est survenue" errorMsg={error} closeModal={this.errorHandler} />
+				<ModalWarningPopUp title="Courriel utilisé" errorMsg={warning} closeModal={this.errorHandler} />
 				{isLoading && <LoadingSpinner asOverlay />}
 				<h2 className="sign-up-title">J'adhère à l'AFVP</h2>
 				<p>Je crée un compte pour commencer mon processus d'adhésion à l'association.</p>

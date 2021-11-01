@@ -6,6 +6,7 @@ import { verifyEmailAsync } from './../../redux/user/user-action-functions';
 import LoadingSpinner from './../../components/loading-spinner/loading-spinner.component';
 import { scrollToTop } from './../../utils/scrollToTop';
 import ModalErrorPopUp from './../../components/modal/modal-error-popup.component';
+import ModalWarningPopUp from './../../components/modal/modal-warning-popup.component';
 import ModalPopUp from './../../components/modal/modal-popup/modal-popup.component';
 
 import './email-verification.styles.scss';
@@ -16,6 +17,7 @@ class EmailVerification extends React.Component {
 
       this.state = {
          error: '',
+         warning: '',
          isModalOpen: false,
          isLoading: false,
       }
@@ -31,7 +33,11 @@ class EmailVerification extends React.Component {
          scrollToTop();
       } catch (err) {
          scrollToTop();
-         this.setState({ isLoading: false, error: this.props.emailVerifiedError });
+         if (this.props.emailVerifiedError.startsWith('Votre courriel est déjà verifié')) {
+            this.setState({ isLoading: false, warning: this.props.emailVerifiedError });
+         } else {
+            this.setState({ isLoading: false, error: this.props.emailVerifiedError });
+         }
       }
    }
 
@@ -40,7 +46,7 @@ class EmailVerification extends React.Component {
       setTimeout(() => { this.props.history.push('/login') }, 1000);
    }
    openModal = () => this.setState({ isModalOpen: true });
-   errorHandler = () => this.setState({ error: '' });
+   errorHandler = () => this.setState({ error: '', warning: '' });
 
    componentDidUpdate(prevProps) {
       if (this.props.emailVerified !== prevProps.emailVerified) {
@@ -49,13 +55,14 @@ class EmailVerification extends React.Component {
    }
 
    render() {
-      const { error, isLoading, isModalOpen } = this.state;
+      const { error, warning, isLoading, isModalOpen } = this.state;
       return (
          <div className="email--verification container mt-5 mb-5" >
             <ModalPopUp open={isModalOpen} closeModal={this.closeModal} headerClass='valid' title="Validation du courriel" footerClose>
                Votre courriel est validé. Vous pouvez désormais vous connecter à votre espace personnel.
             </ModalPopUp>
-            <ModalErrorPopUp title="Une erreur est survenue" errorMsg={error} closeModal={this.errorHandler} />
+            <ModalErrorPopUp title="Erreur de validation" errorMsg={error} closeModal={this.errorHandler} />
+            <ModalWarningPopUp title="Validation effcectuée" errorMsg={warning} closeModal={this.errorHandler} />
             {isLoading && <LoadingSpinner asOverlay />}
             <div className="email--verification-frame">
                <h1>Veuillez confirmer votre courriel </h1>

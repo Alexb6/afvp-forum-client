@@ -37,6 +37,10 @@
          background-color: $red;
       }
 
+      &.warning {
+         background-color: $orange;
+      }
+
       &.valid {
          background-color: $blue;
       }

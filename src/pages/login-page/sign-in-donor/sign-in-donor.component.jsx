@@ -6,6 +6,7 @@ import FormErrorMessage from '../../../components/form/form-error-message/form-e
 import CustomButton from '../../../components/button/custom-button/custom-button.component';
 import { checkEmail, checkPassword, formIsValid } from '../../../utils/formContollers';
 import ModalErrorPopUp from './../../../components/modal/modal-error-popup.component';
+import ModalWarningPopUp from './../../../components/modal/modal-warning-popup.component';
 import { scrollToTop } from '../../../utils/scrollToTop';
 import LoadingSpinner from '../../../components/loading-spinner/loading-spinner.component';
 import { userLoginAsync } from '../../../redux/auth/auth-action-functions';
@@ -25,7 +26,8 @@ class SignInDonor extends React.Component {
 			},
 			isModalOpen: false,
 			isLoading: false,
-			error: ''
+			error: '',
+			warning: ''
 		}
 	}
 
@@ -44,7 +46,11 @@ class SignInDonor extends React.Component {
 				this.setState({ email: '', password: '' });
 			} catch (err) {
 				scrollToTop();
-				this.setState({ isLoading: false, error: err.message || 'Votre demande de connexion n\'a pas été envoyée. Veuillez essayer plus tard.' });
+				if (this.props.loginError.startsWith('Pour se connecter à votre espace personnel')) {
+					this.setState({ isLoading: false, warning: this.props.loginError || 'Veuillez valider votre courriel avant de pouvoir vous connecter.' });
+				} else {
+					this.setState({ isLoading: false, error: err.message || 'Votre demande de connexion n\'a pas été envoyée. Veuillez essayer plus tard.' });
+				}
 			}
 		}
 	}
@@ -65,7 +71,7 @@ class SignInDonor extends React.Component {
 		this.setState({ formErrors, [name]: value });
 	}
 
-	errorHandler = () => this.setState({ error: '' });
+	errorHandler = () => this.setState({ error: '', warning: '' });
 
 	// Fix Warning: Can't perform a React state update on an unmounted component
 	componentWillUnmount() {
@@ -74,10 +80,11 @@ class SignInDonor extends React.Component {
 
 
 	render() {
-		const { formErrors, isLoading, error, email, password } = this.state;
+		const { formErrors, isLoading, error, warning, email, password } = this.state;
 		return (
 			<div className="sign-in col-md-6 col-sm-12 mb-3">
 				<ModalErrorPopUp title="Erreur de connexion" errorMsg={error} closeModal={this.errorHandler} />
+				<ModalWarningPopUp title="Validation de courriel" errorMsg={warning} closeModal={this.errorHandler} />
 				{isLoading && <LoadingSpinner asOverlay />}
 				<h2 className="sign-in-title">Je suis un donateur</h2>
 				<p>Se connecter avec mon courriel et mot de passe</p>

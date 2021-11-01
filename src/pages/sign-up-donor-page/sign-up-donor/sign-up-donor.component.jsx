@@ -8,6 +8,7 @@ import FormErrorMessage from '../../../components/form/form-error-message/form-e
 import { checkEmail, checkPassword, checkPasswordConfirm, formIsValid } from '../../../utils/formContollers';
 import ModalPopUp from '../../../components/modal/modal-popup/modal-popup.component';
 import ModalErrorPopUp from '../../../components/modal/modal-error-popup.component';
+import ModalWarningPopUp from './../../../components/modal/modal-warning-popup.component';
 import { scrollToTop } from '../../../utils/scrollToTop';
 import LoadingSpinner from '../../../components/loading-spinner/loading-spinner.component';
 import { userSignUpAsync } from '../../../redux/auth/auth-action-functions';
@@ -36,7 +37,8 @@ class SignUpDonor extends React.Component {
          },
          isModalOpen: false,
          isLoading: false,
-         error: ''
+         error: '',
+         warning: ''
       }
    }
 
@@ -56,7 +58,11 @@ class SignUpDonor extends React.Component {
             this.setState({ gender: '', family_name: '', first_name: '', email: '', password: '', pass_confirm: '', address: '', country: '', firm: '' });
          } catch (err) {
             scrollToTop();
-            this.setState({ isLoading: false, error: this.props.signUpError || 'Une erreur est survenue, votre demande n\'a pas été envoyée. Veuillez essayer plus tard.' });
+            if (this.props.signUpError.startsWith('Un utilisateur avec ce courriel existe déjà')) {
+               this.setState({ isLoading: false, warning: this.props.signUpError || 'Une erreur est survenue, votre demande n\'a pas été envoyée. Veuillez essayer plus tard.' });
+            } else {
+               this.setState({ isLoading: false, error: this.props.signUpError || 'Une erreur est survenue, votre demande n\'a pas été envoyée. Veuillez essayer plus tard.' });
+            }
          }
       }
    }
@@ -85,16 +91,17 @@ class SignUpDonor extends React.Component {
 
    closeModal = () => this.setState({ isModalOpen: false });
    openModal = () => this.setState({ isModalOpen: true });
-   errorHandler = () => this.setState({ error: '' });
+   errorHandler = () => this.setState({ error: '', warning: '' });
 
    render() {
-      const { isModalOpen, formErrors, isLoading, error, gender, family_name, first_name, email, password, pass_confirm, address, country, firm } = this.state;
+      const { isModalOpen, formErrors, isLoading, error, warning, gender, family_name, first_name, email, password, pass_confirm, address, country, firm } = this.state;
       return (
          <div className="sign-up col-xl-7 col-lg-8 col-md-10 col-sm-10 col-12 mb-3">
             <ModalPopUp open={isModalOpen} closeModal={this.closeModal} headerClass='valid' title="Compte crée" footerClose>
                Vous êtes inscrit en tant que donateur. Vous pouvez désormais faire des dons dans votre espace personnel !
             </ModalPopUp>
             <ModalErrorPopUp errorMsg={error} closeModal={this.errorHandler} />
+            <ModalWarningPopUp title="Courriel utilisé" errorMsg={warning} closeModal={this.errorHandler} />
             {isLoading && <LoadingSpinner asOverlay />}
             <h2 className="sign-up-title">Je soutiens l'AFVP</h2>
             <p>Veuillez créer un compte pour faire un don à l'association. Nous aurons besoin de ces informations pour vous remettre un justificatif fiscal.</p>
