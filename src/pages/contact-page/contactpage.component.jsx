@@ -4,7 +4,7 @@ import { ReactComponent as Email } from './../../assets-src/icons/arroba.svg';
 import { ReactComponent as Blog } from './../../assets-src/icons/blogger.svg';
 import AFVP from './../../assets-src/data/data-AFVP';
 
-import ContactForm from './../../components/form/form-contact/contact.component';
+import ContactForm from './contact-form/contact-form.component';
 
 import './contactpage.styles.scss';
 

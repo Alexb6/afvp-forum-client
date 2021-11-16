@@ -108,16 +108,16 @@ class SignUpMember extends React.Component {
 				<p>Je crée un compte pour commencer mon processus d'adhésion à l'association.</p>
 				<p className="sign-up-connect-account">Je suis déjà membre, <a href="/login">je me connecte</a> à mon compte.</p>
 				<form onSubmit={this.handleSubmit} autoComplete="off">
-					<FormOptionsSelect name="gender" label="Civilité*" value={gender} options={this.state.genderOptions} placeholder='' required onChange={this.handleChange} />
-					<FormInput type="text" name="family_name" label="Nom*" value={family_name} required onChange={this.handleChange} />
-					<FormInput type="text" name="first_name" label="Prénom*" value={first_name} required onChange={this.handleChange} />
-					<FormInput type="email" name="email" label="Courriel*" value={email} required onChange={this.handleChange} />
+					<FormOptionsSelect name="gender" label="Civilité *" value={gender} options={this.state.genderOptions} placeholder='' required onChange={this.handleChange} />
+					<FormInput type="text" name="family_name" label="Nom *" value={family_name} required onChange={this.handleChange} />
+					<FormInput type="text" name="first_name" label="Prénom *" value={first_name} required onChange={this.handleChange} />
+					<FormInput type="email" name="email" label="Courriel *" value={email} required onChange={this.handleChange} />
 					{formErrors.email.length > 0 && email.length > 3 && (<FormErrorMessage >{formErrors.email}</FormErrorMessage>)}
-					<FormInput type="password" name="password" label="Mot de passe*" value={password} required onChange={this.handleChange} />
+					<FormInput type="password" name="password" label="Mot de passe *" value={password} required onChange={this.handleChange} />
 					{formErrors.password.length > 0 && password.length > 3 && (<FormErrorMessage >{formErrors.password}</FormErrorMessage>)}
-					<FormInput type="password" name="pass_confirm" label="Confirmer le mot de passe*" value={pass_confirm} required onChange={this.handleChange} onBlur={this.checkPasswordConfirm} />
+					<FormInput type="password" name="pass_confirm" label="Confirmer le mot de passe *" value={pass_confirm} required onChange={this.handleChange} onBlur={this.checkPasswordConfirm} />
 					{formErrors.pass_confirm.length > 0 && pass_confirm.length > 3 && (<FormErrorMessage >{formErrors.pass_confirm}</FormErrorMessage>)}
-					<FormTextArea type="textarea" name="biography" label="Présentez vous en quelques mots...*" value={this.state.biography} rows="3" required onChange={this.handleChange} />
+					<FormTextArea type="textarea" name="biography" label="Présentez vous en quelques mots... *" value={this.state.biography} rows="3" required onChange={this.handleChange} />
 					<CustomButton type="submit" className="custom-button--positive--duck">Créer</CustomButton>
 				</form>
 			</div>

@@ -1,5 +1,5 @@
 import { AuthActionTypes } from './auth-types';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 const INITIAL_STATE = {
    accessToken: null,
@@ -47,7 +47,7 @@ const authReducer = (state = INITIAL_STATE, action) => {
             refreshTokenLoading: false
          }
       case AuthActionTypes.USER_LOGOUT:
-         localStorage.setItem('userLoggedOut', moment(new Date()).format());
+         localStorage.setItem('userLoggedOut', dayjs(new Date()).format());
          return {
             ...INITIAL_STATE
          }

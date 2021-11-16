@@ -1,0 +1,59 @@
+@import "./../../../sass/variables";
+
+.bureau--member {
+   display: flex;
+   // justify-content: center;
+   align-items: center;
+   margin-bottom: 1.5rem;
+
+   .photo--member {
+      width: 110px;
+      // height: 110px;
+      // margin-right: 1rem;
+
+      img {
+         width: 100%;
+         height: 100%;
+         border-radius: 2px;
+      }
+   }
+
+   .function {
+      span {
+         overflow-wrap: break-word;
+      }
+      .function-title {
+         color: $gray-blue;
+         font-weight: 600;
+      }
+      .function-name {
+         color: $duck-light;
+         font-weight: 800;
+      }
+   }
+}
+
+@media screen and (max-width: 1216px) {
+   .bureau--member {
+      flex-direction: column;
+      justify-content: start;
+
+      .photo--member {
+         width: 140px;
+         height: 110px;
+      }
+
+      .function {
+         text-align: center;
+      }
+   }
+}
+
+@media screen and (max-width: 666px) {
+   .bureau--member {
+      .photo--member {
+         width: 140px;
+         height: 110px;
+      }
+   }
+}

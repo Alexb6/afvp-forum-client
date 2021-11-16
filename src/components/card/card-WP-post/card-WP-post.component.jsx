@@ -1,6 +1,6 @@
 import React from 'react';
 import parse from 'html-react-parser';
-// import Moment from 'react-moment';
+// import DayJS from 'react-dayjs';
 
 import './card-WP-post.styles.scss';
 
@@ -18,7 +18,7 @@ const CardWPPost = ({ image, author, date, title, excerpt, link }) => (
 			{/* <div className="card__footer">
 				<div className="footer__author-date">
 					<span>{author}</span>
-					<span><Moment format="DD/MM/YYYY">{date}</Moment></span>
+					<span><DayJS format="MM-DD-YYYY">{date}</DayJS></span>
 				</div>
 			</div> */}
 		</div>

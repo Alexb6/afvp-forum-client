@@ -263,7 +263,7 @@ class UserProfile extends React.Component {
                      <div className="section--data">{biography}</div>
                   </div>
                   <div className="section section--hobby">
-                     <div className="section--label">Hobby</div>
+                     <div className="section--label">Hobbies</div>
                      <div className="section--data">{hobby}</div>
                   </div>
                </>

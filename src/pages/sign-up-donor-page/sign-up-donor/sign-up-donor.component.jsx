@@ -107,17 +107,17 @@ class SignUpDonor extends React.Component {
             <p>Veuillez créer un compte pour faire un don à l'association. Nous aurons besoin de ces informations pour vous remettre un justificatif fiscal.</p>
             <p className="sign-up-connect-account">Je suis déjà donateur, <a href="/login">je me connecte</a> à mon compte.</p>
             <form onSubmit={this.handleSubmit} autoComplete="off">
-               <FormOptionsSelect name="gender" label="Civilité*" value={gender} options={this.state.genderOptions} placeholder='' required onChange={this.handleChange} />
-               <FormInput type="text" name="family_name" label="Nom*" value={family_name} required onChange={this.handleChange} />
-               <FormInput type="text" name="first_name" label="Prénom*" value={first_name} required onChange={this.handleChange} />
-               <FormInput type="email" name="email" label="Courriel*" value={email} required onChange={this.handleChange} />
+               <FormOptionsSelect name="gender" label="Civilité *" value={gender} options={this.state.genderOptions} placeholder='' required onChange={this.handleChange} />
+               <FormInput type="text" name="family_name" label="Nom *" value={family_name} required onChange={this.handleChange} />
+               <FormInput type="text" name="first_name" label="Prénom *" value={first_name} required onChange={this.handleChange} />
+               <FormInput type="email" name="email" label="Courriel *" value={email} required onChange={this.handleChange} />
                {formErrors.email.length > 0 && email.length > 3 && (<FormErrorMessage >{formErrors.email}</FormErrorMessage>)}
-               <FormInput type="password" name="password" label="Mot de passe*" value={password} required onChange={this.handleChange} />
+               <FormInput type="password" name="password" label="Mot de passe *" value={password} required onChange={this.handleChange} />
                {formErrors.password.length > 0 && password.length > 3 && (<FormErrorMessage >{formErrors.password}</FormErrorMessage>)}
-               <FormInput type="password" name="pass_confirm" label="Confirmer le mot de passe*" value={pass_confirm} required onChange={this.handleChange} />
+               <FormInput type="password" name="pass_confirm" label="Confirmer le mot de passe *" value={pass_confirm} required onChange={this.handleChange} />
                {formErrors.pass_confirm.length > 0 && pass_confirm.length > 3 && (<FormErrorMessage >{formErrors.pass_confirm}</FormErrorMessage>)}
-               <FormInput type="text" name="address" label="Adresse*" value={address} required onChange={this.handleChange} />
-               <FormInput type="text" name="country" label="Pays*" value={country} required onChange={this.handleChange} />
+               <FormInput type="text" name="address" label="Adresse *" value={address} required onChange={this.handleChange} />
+               <FormInput type="text" name="country" label="Pays *" value={country} required onChange={this.handleChange} />
                <FormInput type="text" name="firm" label="Entreprise" value={firm} onChange={this.handleChange} />
                <CustomButton type="submit" className="custom-button--positive--duck">Créer</CustomButton>
             </form>

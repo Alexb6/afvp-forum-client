@@ -12,9 +12,11 @@ import SingnUpMemberPage from './pages/sign-up-member-page/sign-up-member-page.c
 import SingnUpDonorPage from './pages/sign-up-donor-page/sign-up-donor-page.component';
 import UserPage from './pages/user-page/user-page.component';
 import LoadingSpinner from './components/loading-spinner/loading-spinner.component';
-import EmailVerification from './pages/email-verification/email-verification.component';
+import EmailVerification from './pages/email-verification-page/email-verification.component';
 import ForgotPasswordPage from './pages/forgot-password-page/forgot-password.component';
 import ResetPasswordPage from './pages/reset-password-page/reset-password-page.component';
+import AboutPage from './pages/about-page/about.component';
+import UsefulLinks from './pages/useful-links-page/useful-links.component';
 
 import './App.scss';
 
@@ -51,6 +53,8 @@ class App extends React.Component {
 					<Route path='/verify-email/:token' component={EmailVerification} />
 					<Route path='/forgot-password' component={ForgotPasswordPage} />
 					<Route path='/reset-password/:token' component={ResetPasswordPage} />
+					<Route path='/about' component={AboutPage} />
+					<Route path='/useful-links' component={UsefulLinks} />
 				</Switch>
 				<Footer />
 			</div>

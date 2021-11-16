@@ -24,9 +24,14 @@ const Footer = () => (
 				</div>
 			</div>
 			<div className="footer-contact">
-				<Link className="contact-contact" to='/contact'><HollowRightChevron /> Nous Contacter</Link>
-				<Link className="contact-membership" to='/sign-up-member'> <HollowRightChevron /> Nous Rejoindre</Link>
-				<Link className="contact-donation" to='/sign-up-donor'> <HollowRightChevron /> Faire un Don</Link>
+				<div className="contact-membership">
+					<Link className="contact-contact" to='/contact'><HollowRightChevron /> Nous Contacter</Link>
+					<Link className="membership-membership" to='/sign-up-member'> <HollowRightChevron /> Nous Rejoindre</Link>
+				</div>
+				<div className="donation-links">
+					<Link className="donation-donation" to='/sign-up-donor'> <HollowRightChevron /> Faire un Don</Link>
+					<Link className="links-links" to='/useful-links'> <HollowRightChevron /> Liens utiles</Link>
+				</div>
 			</div>
 		</div>
 		<LineDivider backgroundColor='#969696' height={0.1} />

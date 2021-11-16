@@ -63,6 +63,16 @@ $navy: #021e34;
 /* -------------------------------------
 Mixin
 -------------------------------------- */
+/* Top hero images */
+@mixin hero-image-container-fluid {
+	margin-bottom: 2rem;
+	width: 100vw;
+	max-height: 60vh;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+}
+
 /* Fonts */
 @mixin fluid-section-title {
 	// font-size: calc(35px + (48 - 35) * ((100vw - 320px) / (1400 - 320)));
@@ -133,6 +143,7 @@ Mixin
 	color: $duck-light;
 }
 
+/* Links */
 @mixin grayed-message {
 	opacity: 0.5;
 	font-style: italic;

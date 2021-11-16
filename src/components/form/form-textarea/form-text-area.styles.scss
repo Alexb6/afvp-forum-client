@@ -5,6 +5,7 @@
 
 	.textarea-textarea {
 		@include input-styles;
+		white-space: pre-line;
 
 		&:focus ~ .textarea-label {
 			@include shrink-label;

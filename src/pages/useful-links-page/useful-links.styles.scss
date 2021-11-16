@@ -1,0 +1,33 @@
+@import "./../../sass/variables";
+
+.useful-links-page {
+   margin-top: $bar-margin;
+
+   .links-titlebar {
+      background-color: $duck;
+      @include gray-blue-shadow;
+
+      .titlebar-title {
+         color: white;
+         @include fluid-section-title;
+         padding-top: $bar-title-padding;
+         padding-bottom: $bar-title-padding;
+      }
+   }
+
+   .links-section {
+      display: flex;
+
+      .links-row {
+         width: 100vw;
+
+         h2 {
+            @include fluid-title-h2;
+            border-bottom: 1px solid $gray-anthracite;
+         }
+         h4 {
+            @include fluid-title-h4;
+         }
+      }
+   }
+}

@@ -1,12 +1,7 @@
 @import "./../../../sass/variables";
 
 .home-carousel {
-	margin-bottom: 2rem;
-	width: 100vw;
-	max-height: 60vh;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
+	@include hero-image-container-fluid;
 
 	.carousel.slide {
 		left: -7px;
