@@ -31,15 +31,15 @@ const UserMenu = ({ currentUser, handleLogout, handleProfile, handlechangePasswo
          <li className="user--menu--item" onClick={() => { mobileMenuClose(); handlechangePassword() }}>
             <Link to='#'>Changer de Mot de Passe</Link>
          </li>
-         <li className="user--menu--item" onClick={mobileMenuClose}>
+         <li className="user--menu--item to--hide" onClick={mobileMenuClose}>
             <Link to='#'>Payer ma Cotisation</Link>
          </li>
-         <li className="user--menu--item" onClick={mobileMenuClose}>
+         <li className="user--menu--item to--hide" onClick={mobileMenuClose}>
             <Link to='#'>Faire un Don</Link>
          </li>
       </ul>
-      <div className="admin--space">Administration</div>
-      <ul className="admin--menu">
+      <div className="admin--space to--hide">Administration</div>
+      <ul className="admin--menu to--hide">
          <li className="admin--menu--item" onClick={mobileMenuClose}>
             <Link to='#'>Demandes d'Adhésion</Link>
          </li>

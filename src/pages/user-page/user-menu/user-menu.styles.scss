@@ -7,6 +7,10 @@
    max-width: 250px;
    border-right: 1px solid $gray-blue-light;
 
+   .to--hide {
+      display: none;
+   }
+
    .user--infos {
       margin-bottom: 0.8rem;
 
@@ -43,6 +47,7 @@
          font-weight: 500;
          font-size: 14px;
          text-align: center;
+         display: none;
       }
    }
 

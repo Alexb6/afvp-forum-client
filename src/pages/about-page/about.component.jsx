@@ -25,13 +25,28 @@ class AboutPage extends React.Component {
             </div>
             <div className="goals container">
                <h1>Nos buts et activités</h1>
-               <p>L’association a pout but de faire des échanges médicaux, paramédicaux, et d'enseignement entre les structures sanitaires françaises et vietnamiennes. Nous collaborons dans la recherche de divers domaines cliniques, fondamentaux et thérapeutiques et spécifiquement dans le cadre de la pneumologie et la chirurgie thoracique. Nous apportons une aide matérielle pour le diagnostic et le traitement des patients atteints d‘affections respiratoires.
-               </p>
-               <p>Les actions bénévoles sont axées sur l’enseignement et se répartissent entre ces groupes de travail : Chirurgie thoracique et anesthésie, Pneumologie interventionnelle et Imagerie thoracique (CTscan, USscan), Pathologies  du Sommeil, Allergologie, Kinésithérapie respiratoire et le Partenariat Aquitaine-Haiphong. Les missions de formation mobilisent un à plusieurs médecins spécialistes et des paramédicaux et sont menées lors de sessions de 2 à 5 jours, à l’invitation d’hôpitaux vietnamiens et sur des thèmes convenus longtemps à l’avance. Ces missions reviennent 1 à 3 fois par an pour chacun des groupes de travail. Dans ce cadre, nous avons crée deux diplômes interuniversitaires franco-vietnamiens de pneumologie et d’allergologie. Enfin, nous menons parfois des actions ponctuelles qui peuvent déborder de la pneumologie.</p>
-               <p>Depuis 1998, nous organisons des congrès biennaux au Vietnam qui sont coordonnés avec des sociétés savantes vietnamiennes.</p>
-               <p>Nous publions un journal interne de l’association (Phế Nang) et des monographies bilingues sur les pathologies du sommeil, la BPCO, les maladies allergiques. Pour célébrer les 25 années de l'association, nous avons édité un livre pour retracer nos actions de cette période.</p>
-               <p>Nous facilitations la venue de stagiaires vietnamiens en France et occasionnellement de stagiaires français au Vietnam.</p>
-               <p>Nous faisons des achats de matériel...</p>
+               <div className="row">
+                  <div className="activities col">
+                     <p>L’association a pout but de réaliser des formations et des échanges médicaux et paramédicaux, entre les structures sanitaires françaises et vietnamiennes. Nous collaborons pour la recherche dans divers domaines cliniques, fondamentaux et thérapeutiques, spécifiquement dans le cadre de la pneumologie et de la chirurgie thoracique. Nous apportons une aide matérielle pour le diagnostic et le traitement des patients atteints d‘affections respiratoires.
+                     </p>
+                     <p>Les actions bénévoles sont centrées sur les formations théoriques et pratiques; elles se répartissent entre plusieurs groupes de travail : chirurgie thoracique et anesthésie, pneumologie interventionnelle et Imagerie thoracique (CTscan, USscan), pathologies du sommeil, allergologie, kinésithérapie respiratoire et consultations communes avec le partenariat Aquitaine-Haiphong.</p>
+                     <p>Les missions de formation mobilisent un ou plusieurs médecins spécialistes et des paramédicaux ; elles sont menées lors de sessions de 2 à 5 jours, à l’invitation d’hôpitaux vietnamiens, sur des thèmes convenus et préparés à l’avance. Chaque groupe de travail fait 1 à 3 missions par an. De plus, nous avons créé deux diplômes interuniversitaires, franco-vietnamiens, de pneumologie et d’allergologie. Enfin, certains membres mènent parfois des actions ponctuelles débordant de la spécialité pneumologie.</p>
+                  </div>
+               </div>
+               <div className="row">
+                  <div className="other-activities col">
+                     <p>Nos autres actions :</p>
+                     <ul>
+                        <li>organisation depuis 1998, de congrès biennaux au Vietnam, coordonnés avec les sociétés savantes vietnamiennes.</li>
+                        <li>publications d'un journal interne de l’association (Phế Nang) et de monographies bilingues ( pathologies du sommeil, BPCO, maladies allergiques).</li>
+                        <li>pour la célébration des 25 années de l'association, édition d' un livre pour retracer l'histoire et les actions de cette période.</li>
+                        <li>facilitation de la venue de stagiaires vietnamiens en France et occasionnellement de stagiaires français au Vietnam.</li>
+                        <li>développement récent de téléconsultations, de formations pratiques et d'enseignement à distance.</li>
+                        <li>achats de matériel...</li>
+                     </ul>
+                  </div>
+               </div>
+
             </div>
             <div className="bureau container">
                <h1>Bureau de l'AFVP</h1>

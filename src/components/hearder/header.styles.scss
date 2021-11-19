@@ -45,6 +45,11 @@
 			align-items: center;
 			margin-bottom: 0;
 
+			.forum,
+			.flag {
+				display: none;
+			}
+
 			.menu__separator {
 				height: 1px;
 				box-shadow: 0 8px 6px -6px black;

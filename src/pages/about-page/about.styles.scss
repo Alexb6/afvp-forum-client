@@ -9,6 +9,16 @@
       @include fluid-title-h1;
    }
 
+   .other-activities {
+      p {
+         margin-bottom: 0.5rem;
+         font-weight: 800;
+      }
+      ul {
+         margin-left: 2rem;
+      }
+   }
+
    .bureau h1 {
       margin-bottom: 2rem;
    }
