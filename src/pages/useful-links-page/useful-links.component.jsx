@@ -37,7 +37,7 @@ const UsefulLinks = () => (
             <div className="france sign-in col-md-6 col-sm-12 mb-3">
                <h2>Vietnam</h2>
                <p><a href="https://hoihohapvietnam.org/" target="_blank" rel="noopener noreferrer">Vietnamese National Respiratory Society</a></p>
-               <p><a href="https://www.stoptb.org/countries/partnerships/np_vnm.asp" target="_blank" rel="noopener noreferrer">The National Stop TB Partnership in Viet Nam</a></p>
+               <p><a href="https://www.stoptb.org/static_pages/VNM_Dashboard.html" target="_blank" rel="noopener noreferrer">The National Stop TB Partnership in Viet Nam</a></p>
                <p><a href="https://vn.ambafrance.org/" target="_blank" rel="noopener noreferrer">Ambassade de France au Vietnam</a></p>
                <p><a href="https://lecourrier.vn/" target="_blank" rel="noopener noreferrer">Le Courrier du VietNam</a></p><br />
                <h4>Hôpitaux au Vietnam </h4>
@@ -49,7 +49,7 @@ const UsefulLinks = () => (
                <p><a href="http://choray.vn/" target="_blank" rel="noopener noreferrer">Hôpital Chợ Rẫy – Ho Chi Minh</a></p>
                <p><a href="https://bvtwhue.com.vn/" target="_blank" rel="noopener noreferrer">Hôpital Central Hué</a></p><br />
                <h4>Universités </h4>
-               <p><a href="http://www.yds.edu.vn/yds2/" target="_blank" rel="noopener noreferrer">Université de Médecine et Pharmacie HCMV</a></p>
+               <p><a href="https://web.archive.org/web/20131129080823/http://www.ump.edu.vn/" target="_blank" rel="noopener noreferrer">Université de Médecine et Pharmacie HCMV</a></p>
                <p><a href="https://www.pnt.edu.vn/" target="_blank" rel="noopener noreferrer">Université Pham Ngoc Tach – HCMV</a></p>
                <p><a href="http://hmu.edu.vn/news/default.aspx" target="_blank" rel="noopener noreferrer">Université de Médecine Hanoi</a></p>
                <p><a href="https://huemed-univ.edu.vn/en/" target="_blank" rel="noopener noreferrer">Université Médecine Pharmacie Hué</a></p>
@@ -67,7 +67,7 @@ const UsefulLinks = () => (
             </div>
             <div className="france sign-in col-md-6 col-sm-12 mb-3">
                <h2>Pratique</h2>
-               <p><a href="https://www.ers-education.org/guidelines/global-lung-function-initiative/spirometry-tools.aspx/" target="_blank" rel="noopener noreferrer">EFR : GLI ERS</a></p>
+               <p><a href="https://www.ers-education.org/guidelines/global-lung-function-initiative/spirometry-tools/" target="_blank" rel="noopener noreferrer">EFR : GLI ERS</a></p>
                <p><a href="http://gli-calculator.ersnet.org/index.html" target="_blank" rel="noopener noreferrer">GLI Lung Function Calculator</a></p>
                <p><a href="https://onco-aura.fr/" target="_blank" rel="noopener noreferrer">ONCO AURA, Réseau Régional de Cancérologie Auvergne-Rhône-Alpes</a></p>
                <p><a href="https://www.aideaucodage.fr/ccam" target="_blank" rel="noopener noreferrer">Aide au Codage CCAM en ligne</a></p>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as Telephone } from './../../assets-src/icons/phone-ringing.svg';
+// import { ReactComponent as Telephone } from './../../assets-src/icons/phone-ringing.svg';
 import { ReactComponent as Email } from './../../assets-src/icons/arroba.svg';
 import { ReactComponent as Blog } from './../../assets-src/icons/blogger.svg';
 import AFVP from './../../assets-src/data/data-AFVP';
@@ -25,10 +25,6 @@ const ContactPage = () => (
 							<span>{address}</span>
 							<span>{zipCode} {town}, {country}</span>
 						</div>
-					</div>
-					<div className="details-telephone">
-						<Telephone />
-						<span><b>{phone}</b></span>
 					</div>
 					<div className="details-email">
 						<Email />

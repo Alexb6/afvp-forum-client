@@ -47,7 +47,7 @@ const Header = ({ currentUser }) => {
 							<Link to='/forum' onClick={mobileMenuClose} >forum</Link>
 						</li>
 						<li className="menu__item blog">
-							<a href='http://www.blog.afvp.net/' target="_blank" rel="noopener noreferrer" onClick={mobileMenuClose}>blog</a>
+							<a href='https://www.blog.afvp.net/' target="_blank" rel="noopener noreferrer" onClick={mobileMenuClose}>blog</a>
 						</li>
 						<li className="menu__item flag" onMouseEnter={showDropdownFlag} onMouseLeave={hideDropdownFlag}>
 							<Link to='#' onClick={handleDropdownFlag} >flag <AngleDown className="fas fa-angle-down" /> <AngleRight className="fas fa-angle-right" /></Link>
