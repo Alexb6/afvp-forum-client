@@ -1,17 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import './form-input.styles.scss';
+import "./form-input.styles.scss";
 
 const FormInput = ({ onChange, label, ...otherProps }) => (
-	<div className="form-input">
-		<input className="input-input" onChange={onChange} {...otherProps} />
-		{
-			label &&
-			(<label className={`${otherProps.value && 'shrink'} input-label`} >
-				{label}
-			</label>)
-		}
-	</div>
+  <div className="form-input">
+    <input className="input-input" onChange={onChange} {...otherProps} />
+    {label && (
+      <label className={`${otherProps.value && "shrink"} input-label`}>
+        {label}
+      </label>
+    )}
+  </div>
 );
 
 export default FormInput;

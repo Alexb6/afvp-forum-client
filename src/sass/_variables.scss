@@ -65,118 +65,118 @@ Mixin
 -------------------------------------- */
 /* Top hero images */
 @mixin hero-image-container-fluid {
-	margin-bottom: 2rem;
-	width: 100vw;
-	max-height: 60vh;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
+  margin-bottom: 2rem;
+  width: 100vw;
+  max-height: 60vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 /* Fonts */
 @mixin fluid-section-title {
-	// font-size: calc(35px + (48 - 35) * ((100vw - 320px) / (1400 - 320)));
-	font-size: calc(30px + (40 - 30) * ((100vw - 320px) / (1400 - 320)));
+  // font-size: calc(35px + (48 - 35) * ((100vw - 320px) / (1400 - 320)));
+  font-size: calc(30px + (40 - 30) * ((100vw - 320px) / (1400 - 320)));
 }
 
 @mixin fluid-title-h1 {
-	// font-size: calc(28px + (38 - 28) * ((100vw - 320px) / (1400 - 320)));
-	font-size: calc(26px + (33 - 26) * ((100vw - 320px) / (1400 - 320)));
-	color: $gray-anthracite;
+  // font-size: calc(28px + (38 - 28) * ((100vw - 320px) / (1400 - 320)));
+  font-size: calc(26px + (33 - 26) * ((100vw - 320px) / (1400 - 320)));
+  color: $gray-anthracite;
 }
 
 @mixin fluid-title-h2 {
-	// font-size: calc(26px + (34 - 26) * ((100vw - 320px) / (1400 - 320)));
-	font-size: calc(24px + (30 - 24) * ((100vw - 320px) / (1400 - 320)));
-	color: $gray-anthracite;
+  // font-size: calc(26px + (34 - 26) * ((100vw - 320px) / (1400 - 320)));
+  font-size: calc(24px + (30 - 24) * ((100vw - 320px) / (1400 - 320)));
+  color: $gray-anthracite;
 }
 
 @mixin fluid-title-h4 {
-	// font-size: calc(26px + (34 - 26) * ((100vw - 320px) / (1400 - 320)));
-	font-size: calc(21px + (24 - 21) * ((100vw - 320px) / (1400 - 320)));
-	color: $gray-anthracite;
+  // font-size: calc(26px + (34 - 26) * ((100vw - 320px) / (1400 - 320)));
+  font-size: calc(21px + (24 - 21) * ((100vw - 320px) / (1400 - 320)));
+  color: $gray-anthracite;
 }
 
 /* Box shadow */
 @mixin gray-blue-shadow {
-	box-shadow: 1px 1px 8px $gray-blue;
+  box-shadow: 1px 1px 8px $gray-blue;
 }
 
 /* Form input & texarea */
 @mixin input-general-styles {
-	position: relative;
-	margin-bottom: 25px;
+  position: relative;
+  margin-bottom: 25px;
 }
 
 @mixin input-styles {
-	background: none;
-	background-color: white;
-	color: $gray-anthracite;
-	font-size: 18px;
-	padding: 10px 10px 10px 5px;
-	display: block;
-	width: 100%;
-	border: none;
-	border-radius: 0;
-	border-bottom: 1px solid $gray-anthracite-light;
-	margin: 10px 0;
+  background: none;
+  background-color: white;
+  color: $gray-anthracite;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid $gray-anthracite-light;
+  margin: 10px 0;
 
-	&:focus {
-		outline: none;
-	}
+  &:focus {
+    outline: none;
+  }
 }
 
 @mixin input-label {
-	color: $gray-anthracite-light;
-	font-size: 16px;
-	font-weight: normal;
-	position: absolute;
-	pointer-events: none;
-	left: 5px;
-	top: 10px;
-	transition: all 300ms ease;
+  color: $gray-anthracite-light;
+  font-size: 16px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: all 300ms ease;
 }
 
 @mixin shrink-label {
-	top: -7px;
-	font-size: 12px;
-	color: $duck-light;
+  top: -7px;
+  font-size: 12px;
+  color: $duck-light;
 }
 
 /* Links */
 @mixin grayed-message {
-	opacity: 0.5;
-	font-style: italic;
+  opacity: 0.5;
+  font-style: italic;
 }
 
 /* User dashboard */
 @mixin user--name {
-	font-size: 1.3rem;
-	font-weight: 600;
-	color: $duck;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: $duck;
 }
 
 @mixin gradient-user-photo {
-	background: linear-gradient(
-		55deg,
-		rgba(222, 159, 106, 1) 0%,
-		rgba(207, 188, 182, 0.8) 25%,
-		rgba(63, 123, 173, 0.8) 50%,
-		rgba(0, 74, 114, 0.8) 75%,
-		rgba(2, 53, 82, 0.8) 100%
-	);
+  background: linear-gradient(
+    55deg,
+    rgba(222, 159, 106, 1) 0%,
+    rgba(207, 188, 182, 0.8) 25%,
+    rgba(63, 123, 173, 0.8) 50%,
+    rgba(0, 74, 114, 0.8) 75%,
+    rgba(2, 53, 82, 0.8) 100%
+  );
 }
 
 @mixin frame-border {
-	border: 1px solid $gray-blue-light;
-	padding: 1.2rem;
-	margin-bottom: 1rem;
+  border: 1px solid $gray-blue-light;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 @mixin user-profile-sections {
-	@include frame-border;
-	max-width: 430px;
-	min-width: 290px;
+  @include frame-border;
+  max-width: 430px;
+  min-width: 290px;
 }
 
 /* -------------------------------------

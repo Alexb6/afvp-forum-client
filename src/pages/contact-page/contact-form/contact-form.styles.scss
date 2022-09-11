@@ -1,8 +1,8 @@
 @import "./../../../sass/variables";
 
 .contact-form {
-	.form-title {
-		@include fluid-title-h2;
-		color: $duck;
-	}
+  .form-title {
+    @include fluid-title-h2;
+    color: $duck;
+  }
 }

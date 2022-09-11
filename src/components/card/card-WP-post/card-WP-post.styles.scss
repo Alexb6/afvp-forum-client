@@ -1,74 +1,74 @@
 @import "./../../../sass/variables";
 
 .card {
-	background-color: $gray-blue;
-	margin-bottom: 2rem;
-	padding: 0 15px;
-	border: none;
+  background-color: $gray-blue;
+  margin-bottom: 2rem;
+  padding: 0 15px;
+  border: none;
 
-	.card-inner {
-		background-color: white;
-		overflow: hidden;
+  .card-inner {
+    background-color: white;
+    overflow: hidden;
 
-		.card__image {
-			width: 100%;
-			height: calc(200px + (250 - 200) * ((100vw - 320px) / (1400 - 320)));
-			background-position: center;
-			background-size: cover;
-			margin-bottom: 1.5rem;
-			@include gray-blue-shadow;
-			// background: linear-gradient(
-			//     140deg,
-			//     rgba(115, 155, 162, 0.8) 0%,
-			//     rgba(90, 137, 145, 0.8) 20%,
-			//     rgba(86, 130, 138, 0.8) 40%,
-			//     rgba(86, 130, 138, 0.7) 65%,
-			//     rgba(149, 190, 198, 0.8) 100%
-			// );
-			background: linear-gradient(
-				55deg,
-				rgba(144, 215, 235, 0.8) 0%,
-				rgba(161, 218, 227, 0.8) 25%,
-				rgba(179, 222, 216, 0.8) 50%,
-				rgba(190, 213, 193, 0.8) 75%,
-				rgba(185, 201, 174, 0.8) 100%
-			);
-		}
+    .card__image {
+      width: 100%;
+      height: calc(200px + (250 - 200) * ((100vw - 320px) / (1400 - 320)));
+      background-position: center;
+      background-size: cover;
+      margin-bottom: 1.5rem;
+      @include gray-blue-shadow;
+      // background: linear-gradient(
+      //     140deg,
+      //     rgba(115, 155, 162, 0.8) 0%,
+      //     rgba(90, 137, 145, 0.8) 20%,
+      //     rgba(86, 130, 138, 0.8) 40%,
+      //     rgba(86, 130, 138, 0.7) 65%,
+      //     rgba(149, 190, 198, 0.8) 100%
+      // );
+      background: linear-gradient(
+        55deg,
+        rgba(144, 215, 235, 0.8) 0%,
+        rgba(161, 218, 227, 0.8) 25%,
+        rgba(179, 222, 216, 0.8) 50%,
+        rgba(190, 213, 193, 0.8) 75%,
+        rgba(185, 201, 174, 0.8) 100%
+      );
+    }
 
-		.card__body {
-			padding: 0 15px;
+    .card__body {
+      padding: 0 15px;
 
-			.body__title {
-				color: $gray-anthracite;
-			}
-			.body__read-more {
-				padding-bottom: 1.5rem;
+      .body__title {
+        color: $gray-anthracite;
+      }
+      .body__read-more {
+        padding-bottom: 1.5rem;
 
-				a {
-					text-decoration: none;
-					color: darken($color: $gray-blue, $amount: 20%);
-					font-family: $font-text;
-					font-weight: 700;
-					font-size: 18px;
+        a {
+          text-decoration: none;
+          color: darken($color: $gray-blue, $amount: 20%);
+          font-family: $font-text;
+          font-weight: 700;
+          font-size: 18px;
 
-					&:hover {
-						color: $blue;
-					}
-				}
-			}
-			.read-more {
-				display: none; /* from WP API excerpt */
-			}
-		}
+          &:hover {
+            color: $blue;
+          }
+        }
+      }
+      .read-more {
+        display: none; /* from WP API excerpt */
+      }
+    }
 
-		.card__footer {
-			background-color: $gray-blue;
-			padding: 0 15px;
-			.footer__author-date {
-				display: flex;
-				justify-content: space-between;
-				color: white;
-			}
-		}
-	}
+    .card__footer {
+      background-color: $gray-blue;
+      padding: 0 15px;
+      .footer__author-date {
+        display: flex;
+        justify-content: space-between;
+        color: white;
+      }
+    }
+  }
 }

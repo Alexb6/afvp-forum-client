@@ -1,19 +1,19 @@
 @import "./../../../sass/variables";
 
 .articles {
-	background-color: $gray-blue;
-	.articles__posts {
-		width: 100vw;
-	}
+  background-color: $gray-blue;
+  .articles__posts {
+    width: 100vw;
+  }
 
-	.articles__intro {
-		color: white;
-		h1 {
-			@include fluid-title-h1;
-			padding-top: 2rem;
-		}
-		p {
-			margin-bottom: 2rem;
-		}
-	}
+  .articles__intro {
+    color: white;
+    h1 {
+      @include fluid-title-h1;
+      padding-top: 2rem;
+    }
+    p {
+      margin-bottom: 2rem;
+    }
+  }
 }

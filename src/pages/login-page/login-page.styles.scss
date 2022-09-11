@@ -1,25 +1,25 @@
 @import "./../../sass/variables";
 
 .login-page {
-	margin-top: $bar-margin;
+  margin-top: $bar-margin;
 
-	.login-titlebar {
-		background-color: $duck;
-		@include gray-blue-shadow;
+  .login-titlebar {
+    background-color: $duck;
+    @include gray-blue-shadow;
 
-		.titlebar-title {
-			color: white;
-			@include fluid-section-title;
-			padding-top: $bar-title-padding;
-			padding-bottom: $bar-title-padding;
-		}
-	}
+    .titlebar-title {
+      color: white;
+      @include fluid-section-title;
+      padding-top: $bar-title-padding;
+      padding-bottom: $bar-title-padding;
+    }
+  }
 
-	.login-section {
-		display: flex;
+  .login-section {
+    display: flex;
 
-		.login-row {
-			width: 100vw;
-		}
-	}
+    .login-row {
+      width: 100vw;
+    }
+  }
 }

@@ -1,33 +1,33 @@
 @import "./../../../sass/variables";
 
 .sign-in {
-	.sign-in-title {
-		@include fluid-title-h2;
-		color: $duck;
-	}
+  .sign-in-title {
+    @include fluid-title-h2;
+    color: $duck;
+  }
 
-	.sign-in-create-account {
-		@include grayed-message;
-	}
+  .sign-in-create-account {
+    @include grayed-message;
+  }
 
-	form {
-		button {
-			margin-bottom: 20px;
-		}
-		.forgot-password {
-			opacity: 0.5;
-			font-style: italic;
+  form {
+    button {
+      margin-bottom: 20px;
+    }
+    .forgot-password {
+      opacity: 0.5;
+      font-style: italic;
 
-			a {
-				@include grayed-message;
-				opacity: 1;
-				color: $blue;
-				margin-bottom: 30px;
+      a {
+        @include grayed-message;
+        opacity: 1;
+        color: $blue;
+        margin-bottom: 30px;
 
-				&:hover {
-					color: $cyan;
-				}
-			}
-		}
-	}
+        &:hover {
+          color: $cyan;
+        }
+      }
+    }
+  }
 }

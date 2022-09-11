@@ -1,15 +1,15 @@
 @import "./../../sass/variables";
 
 .email--verification {
-   display: flex;
-   justify-content: center;
+  display: flex;
+  justify-content: center;
 
-   .email--verification-frame {
-      @include frame-border;
-      width: max-content;
+  .email--verification-frame {
+    @include frame-border;
+    width: max-content;
 
-      h1 {
-         @include fluid-title-h1;
-      }
-   }
+    h1 {
+      @include fluid-title-h1;
+    }
+  }
 }

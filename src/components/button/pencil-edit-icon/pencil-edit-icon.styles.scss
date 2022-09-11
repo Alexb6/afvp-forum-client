@@ -1,21 +1,21 @@
 @import "./../../../sass/variables";
 
 .pencil-edit-button {
-   width: 38px;
-   height: 38px;
-   background: none;
-   border: none;
-   padding: 10px;
-   position: absolute;
+  width: 38px;
+  height: 38px;
+  background: none;
+  border: none;
+  padding: 10px;
+  position: absolute;
 
-   svg {
-      fill: $gray-anthracite-light;
-      display: block;
-   }
+  svg {
+    fill: $gray-anthracite-light;
+    display: block;
+  }
 
-   &:hover {
-      svg {
-         fill: $blue;
-      }
-   }
+  &:hover {
+    svg {
+      fill: $blue;
+    }
+  }
 }

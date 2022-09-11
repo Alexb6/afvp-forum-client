@@ -4,24 +4,24 @@
 Bootstrap
 -------------------------------------*/
 .container-fluid {
-	padding: 0;
+  padding: 0;
 }
 
 /*-------------------------------------
 General
 -------------------------------------*/
 body {
-	width: 100vw;
-	height: 100vh;
-	overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 .header-sticky {
-	height: 70px;
+  height: 70px;
 }
 
 .container {
-	max-width: 1400px;
+  max-width: 1400px;
 }
 
 h1,
@@ -30,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: $font-title;
+  font-family: $font-title;
 }
 
 p,
@@ -38,30 +38,30 @@ pre,
 span,
 label,
 input {
-	font-family: $font-text;
+  font-family: $font-text;
 }
 
 .app-afvp {
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	width: 100vw;
-	padding-top: $header-height;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  padding-top: $header-height;
 
-	.header-sticky {
-		flex-shrink: 0;
-	}
+  .header-sticky {
+    flex-shrink: 0;
+  }
 
-	.footer {
-		margin-top: auto;
-	}
+  .footer {
+    margin-top: auto;
+  }
 
-	a {
-		text-decoration: none;
-		color: $blue;
+  a {
+    text-decoration: none;
+    color: $blue;
 
-		&:hover {
-			color: $cyan;
-		}
-	}
+    &:hover {
+      color: $cyan;
+    }
+  }
 }

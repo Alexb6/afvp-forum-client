@@ -1,57 +1,57 @@
 @import "./../../../sass/variables";
 
 @mixin custom-small-button {
-	min-width: 110px;
-	width: auto;
-	height: 30px;
-	letter-spacing: 2px;
-	line-height: 30px;
-	padding: 0 15px;
-	font-size: 15px;
-	font-family: $font-text;
-	// font-weight: bolder;
-	border: none;
-	cursor: pointer;
+  min-width: 110px;
+  width: auto;
+  height: 30px;
+  letter-spacing: 2px;
+  line-height: 30px;
+  padding: 0 15px;
+  font-size: 15px;
+  font-family: $font-text;
+  // font-weight: bolder;
+  border: none;
+  cursor: pointer;
 }
 
 @mixin custom-small-button--positive($color) {
-	@include custom-small-button;
-	background-color: $color;
-	color: white;
+  @include custom-small-button;
+  background-color: $color;
+  color: white;
 
-	&:hover {
-		background-color: white;
-		color: $color;
-		outline: 1px solid $color;
-		outline-offset: -1px;
-	}
+  &:hover {
+    background-color: white;
+    color: $color;
+    outline: 1px solid $color;
+    outline-offset: -1px;
+  }
 }
 
 @mixin custom-small-button--negative($color) {
-	@include custom-small-button;
-	background-color: transparent;
-	color: $color;
-	outline: 1px solid $color;
-	outline-offset: -1px;
+  @include custom-small-button;
+  background-color: transparent;
+  color: $color;
+  outline: 1px solid $color;
+  outline-offset: -1px;
 
-	&:hover {
-		background-color: $color;
-		color: white;
-	}
+  &:hover {
+    background-color: $color;
+    color: white;
+  }
 }
 
 .custom-small-button--positive--duck-light {
-	@include custom-small-button--positive($duck-light);
+  @include custom-small-button--positive($duck-light);
 }
 
 .custom-small-button--positive--gray-blue-dark {
-	@include custom-small-button--positive($gray-blue-dark);
+  @include custom-small-button--positive($gray-blue-dark);
 }
 
 .custom-small-button--negative--duck-light {
-	@include custom-small-button--negative($duck-light);
+  @include custom-small-button--negative($duck-light);
 }
 
 .custom-small-button--negative--gray-blue {
-	@include custom-small-button--negative($gray-blue);
+  @include custom-small-button--negative($gray-blue);
 }

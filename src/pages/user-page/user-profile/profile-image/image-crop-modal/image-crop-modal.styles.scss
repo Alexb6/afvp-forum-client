@@ -1,25 +1,25 @@
 @import "./../../../../../sass/variables";
 
 .image--crop--overlay {
-   width: 100%;
-   position: absolute;
-   top: 0;
-   left: 0;
-   background: rgba(255, 255, 255, 0.8);
-   z-index: 50;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 50;
 
-   .image--crop--container {
-      max-width: 430px;
-      z-index: 51;
-      padding: 15px;
+  .image--crop--container {
+    max-width: 430px;
+    z-index: 51;
+    padding: 15px;
 
-      .crop--buttons-menu {
-         display: flex;
-         justify-content: center;
+    .crop--buttons-menu {
+      display: flex;
+      justify-content: center;
 
-         #cancel {
-            margin-right: 1rem;
-         }
+      #cancel {
+        margin-right: 1rem;
       }
-   }
+    }
+  }
 }

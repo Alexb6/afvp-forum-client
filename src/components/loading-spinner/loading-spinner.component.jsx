@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import './loading-spinner.styles.scss';
+import "./loading-spinner.styles.scss";
 
-const LoadingSpinner = props => {
-   return (
-      <div className={`${props.asOverlay && 'loading-spinner__overlay'}`}>
-         <div className="lds-dual-ring"></div>
-      </div>
-   );
+const LoadingSpinner = (props) => {
+  return (
+    <div className={`${props.asOverlay && "loading-spinner__overlay"}`}>
+      <div className="lds-dual-ring"></div>
+    </div>
+  );
 };
 
 export default LoadingSpinner;
